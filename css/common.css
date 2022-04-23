@@ -775,7 +775,7 @@ p.ct-desc {
 .email input[type="text"]:focus::placeholder,
 .email input[type="email"]:focus::placeholder {
     font-size: 12px;
-    padding-top: 0;
+    opacity: 0.5;
 
 }
 
