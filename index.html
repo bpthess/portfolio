@@ -6,71 +6,90 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>포트폴리오</title>
+    <!--  CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <!-- Custom CSS & JS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/custom.js"></script>
 </head>
 <body>
-<div id="content" class="container">
+<div class="scroll">0</div>
+<header>
+    <span class="all"><a class="xi-bars"></a></span>
+    <h1>portfolio</h1>
+    <span class="circle"><a class="xi-radiobox-blank"></a></span>
+</header>
+
+<div id="wrap" class="container">
     <!--  SECTION : VISUAL START -->
-    <section class="visual">
-        <div class="visual-inner">
-            <h1>
-                FRONT<br>
-                END<br>
-                PUBLISHER
-            </h1>
-            <img src="images/bg_01.jpg" alt="메인 이미지">
-            <div class="visual-content">
-            </div>
-            <div class="menubar">
-                <span class="all"><a class="xi-bars"></a></span>
-                <span>PORTFOLIO</span>
-                <span class="circle"><a class="xi-radiobox-blank"></a></span>
-            </div>
-        </div>
+    <section id="section1" class="visual"
+             data-0="left: 0%"
+             data-1000="left: -100%"
+    >
+        <h1>PUBLISHER</h1>
     </section>
     <!--  SECTION : VISUAL END -->
     <!--  SECTION : RECORD START -->
-    <section class="record">
+    <section id="section2" class="record"
+             data-0="left: 100%"
+             data-1000="left: 0%"
+    >
+        <div class="bg"
+             data-0="transform: translateX(0px)"
+             data-1000="transform: translateX(-400px)"
+        ></div>
         <div class="record-inner">
-            <img src="images/bg_02.png" alt="">
             <div class="record-content">
                 <ul class="desc">
-                    <li><span>dream</span>FRONT</li>
-                    <li>2021.07.01<span>coding start</span></li>
-                    <li><span>moto</span>TRY</li>
-                    <li>PUBL<span>now</span></li>
+                    <li>
+                        <span>dream</span>FRONT
+                    </li>
+                    <li>
+                        2021.07.01<span>coding start</span>
+                    </li>
+                    <li>
+                        <span>moto</span>TRY
+                    </li>
+                    <li>
+                        PUBL<span>now</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
     <!--  SECTION : RECORD END -->
     <!--  SECTION : ABOUT START -->
-    <section class="about">
-        <div class="about-inner">
-            <h2>ABOUT ME</h2>
-        </div>
+    <section id="section3" class="about" data-1000="left: 100%" data-2000="left: 0%">
+        <h3 data-2000="font-size: 26px; opacity: 1" data-2300="font-size: 32px; opacity: 0">PUBLISHER</h3>
+        <h2 data-2300="font-size: 30px; opacity: 0" data-2900="font-size: 70px; opacity: 1;">ABOUT ME</h2>
     </section>
     <!--  SECTION : ABOUT END -->
     <!--  SECTION : ABOUTINTRO START -->
-    <section class="aboutIntro">
-        <div class="aboutIntro-inner">
-            <p class="ct-desc">
-                처음은 퍼블리셔로 미래에는 프론트엔드로 나서기위해 혼자서 돈을 모아 상경했습니다.<br>
-                아직 서울이라는 곳도 낯설지만 잘 극복해 나갈 것을 저 스스로 믿고 있기에<br>
-                오늘보다 더 나은 내일의 내가 되겠습니다.
-            </p>
-        </div>
+    <section id="section4" class="aboutIntro" data-2900="left: 100%;transform: translateX(0px);" data-3900="left: 0%;">
+        <div class="hide-circle"
+             data-4900="transform: translateX(0px);width:100vw;left:0; border-radius: 0;"
+             data-5000="border-radius: 50%;width:120vw;height:200vh;left:-20vw;top:-50vh;"
+             data-5100="border-radius: 50%;width:100vw;height:200vh;left:-20vw;top:-50vh;"
+             data-5200="border-radius: 50%;width:55vw;height:115vh;left:-10vw;top:-7.5vh;"
+             data-5300="border-radius: 50%;width:45vw;height:90vh;left:-15vw;top:5vh"
+        ></div>
+        <p class="ct-desc"
+           data-3900="font-size: 14px; opacity: 0.2"
+           data-4800="font-size: 22px; opacity: 1"
+           data-5200="opacity: 0.6;"
+           data-5600="opacity: 0;">
+            처음은 퍼블리셔로 미래에는 프론트엔드로 나서기위해 혼자서 돈을 모아 상경했습니다.<br>
+            아직 서울이라는 곳도 낯설지만 잘 극복해 나갈 것을 저 스스로 믿고 있기에<br>
+            오늘보다 더 나은 내일의 내가 되겠습니다.
+        </p>
     </section>
+
     <!--  SECTION : ABOUTINTRO END -->
     <!--  SECTION : SKILL START -->
-    <section class="skill">
+    <section id="section5" class="skill" data-5100="left: 100%;" data-5600="left: 0%;">
         <div class="skill-inner">
             <div class="skill-content">
+                <!--<iframe src="skill.html" frameborder="0"></iframe>-->
                 <div class="square">
                     <span></span>
                     <span></span>
@@ -119,29 +138,30 @@
             </div>
         </div>
     </section>
-    <!--  SECTION : SKILL END -->
-    <!--  SECTION : PICTURE START -->
-    <section class="picture">
-        <div class="picture-inner">
-            <div class="picture-content">
-
-            </div>
-        </div>
+    <!--      SECTION : SKILL END-->
+    <!--      SECTION : PICTURE START-->
+    <section id="section6" class="picture"
+             data-5900="left: 100%"
+             data-6000="left: 0%"
+    >
     </section>
     <!--  SECTION : PICTURE END -->
     <!--  SECTION : PROJECT START -->
-    <section class="project">
-        <div class="project-inner">
-            <h2 class="title">
-                PUBLISHING
-            </h2>
-        </div>
+    <section id="section7"
+             data-6000="left: 100%"
+             data-7000="left: 0%"
+    >
+        <h2 class="title">
+            PUBLISHING
+        </h2>
     </section>
     <!--  SECTION : PROJECT END -->
     <!--  SECTION : PROJECT-1 START -->
-    <section class="project pjt-1">
+    <section id="section8" class=""
+             data-7000="left: 100%"
+             data-8000="left: 0%"
+    >
         <div class="project-inner">
-            <img src="images/bg_03.jpg" alt="">
             <div class="project-content">
                 <h2>WEBSTANDARD</h2>
                 <p>
@@ -156,9 +176,11 @@
     </section>
     <!--  SECTION : PROJECT-1 END -->
     <!--  SECTION : PROJECT-2 START -->
-    <section class="project pjt-2">
+    <section id="section9" class=""
+             data-8000="left: 100%"
+             data-9000="left: 0%"
+    >
         <div class="project-inner">
-            <img src="images/bg_03.jpg" alt="">
             <div class="project-content">
                 <h2>RESPONSIVE</h2>
                 <p>
@@ -173,9 +195,10 @@
     </section>
     <!--  SECTION : PROJECT-2 END -->
     <!--  SECTION : PROJECT-3 START -->
-    <section class="project pjt-3">
+    <section id="section10" class=""
+             data-10000="left: 100%"
+             data-11000="left: 0%">
         <div class="project-inner">
-            <img src="images/bg_03.jpg" alt="">
             <div class="project-content">
                 <h2>RESPONSIVE</h2>
                 <p>
@@ -189,15 +212,62 @@
         </div>
     </section>
     <!--  SECTION : PROJECT-3 END -->
+    <!--  SECTION : NOVEL START -->
+    <section id="section11" class="novel javacsript"
+             data-11000="left: 100%"
+             data-12000="left: 0%"
+    >
+        <div class="novel-inner">
+            <h2>JAVASCRIPT</h2>
+            <div class="novel-content">
+                <div class="left-area">
+                    <div class="inner">
+                        <a href="#none"><img src="images/novel_01.png" alt=""></a>
+                        <iframe src="https://bpthess.github.io/javascript/create_music" frameborder="0"></iframe>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="right-area">
+                    <ul>
+                        <li>
+                            <a href="#none">TETRIS GAME</a>
+                            Javascript를 이용해 테트리스 게임 컨텐츠입니다.
+                        </li>
+                        <li>
+                            <a href="#none">TETRIS GAME</a>
+                            Javascript를 이용해 테트리스 게임 컨텐츠입니다.
+                        </li>
+                        <li>
+                            <a href="#none">TETRIS GAME</a>
+                            Javascript를 이용해 테트리스 게임 컨텐츠입니다.
+                        </li>
+                        <li>
+                            <a href="#none">TETRIS GAME</a>
+                            Javascript를 이용해 테트리스 게임 컨텐츠입니다.
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  SECTION : NOVEL END -->
+
     <!--  SECTION : PROMISE START -->
-    <section class="promise">
+    <section id="section12" class="promise"
+             data-14000="left: 100%"
+             data-15000="left: 0%">
         <div class="promise-inner">
             <h2 class="title">Communication</h2>
         </div>
     </section>
     <!--  SECTION : PROMISE END -->
     <!--  SECTION : GOAL START -->
-    <section class="goal">
+    <section id="section13" class="goal"
+             data-15000="left: 100%"
+             data-16000="left: 0%"
+    >
         <div class="goal-inner">
             <p class="ct-desc">
                 효율적인 업무 진행과 반복되지 않는 실수도 중요하지만<br>
@@ -207,7 +277,10 @@
     </section>
     <!--  SECTION : GOAL END -->
     <!--  SECTION : CHALLENGE START -->
-    <section class="challenge">
+    <section id="section14" class="challenge"
+             data-16000="left: 100%"
+             data-17000="left: 0%"
+    >
         <div class="challenge-inner">
             <p>
                 I become a Better<br>
@@ -235,14 +308,20 @@
     </section>
     <!--  SECTION : CHALLENGE END -->
     <!--  SECTION : PARTICLE1 START -->
-    <section class="particle">
+    <section id="section15" class="particle"
+             data-17000="left: 100%"
+             data-18000="left: 0%"
+    >
         <div class="particle-inner">
 
         </div>
     </section>
     <!--  SECTION : PARTICLE1 END -->
     <!--  SECTION : PARTICLE2 START -->
-    <section class="particle">
+    <section id="section16" class="particle"
+             data-18000="left: 100%"
+             data-19000="left: 0%"
+    >
         <div class="particle-inner">
             <div class="desc">
                 <strong>MY NATURE<br> DEVELOP</strong>
@@ -254,29 +333,35 @@
     </section>
     <!--  SECTION : PARTICLE2 END -->
     <!--  SECTION : PARTICLE3 START -->
-    <section class="particle">
+    <section id="section17" class="particle"
+             data-19000="left: 100%"
+             data-20000="left: 0%"
+    >
         <div class="particle-inner">
-            <div class="desc ment">
-                <span class="enter">계면 : 界面</span>
-                <span class="print">FRONTEND & PUBLISHER</span>
+            <div class="ment">
+                <span class="er">계면 : 界面</span>
+                <span class="pt">FRONTEND & PUBLISHER</span>
             </div>
         </div>
     </section>
     <!--  SECTION : PARTICLE3 END -->
     <!--  SECTION : META START -->
-    <section class="meta">
-        <div class="meta-inner">
-            <img src="images/bg_04.jpg" alt="">
-            <p class="ct-desc">
-                <span>"메타인지"</span>
-                큰 꿈을 꾸되 실현 가능한 것들을 실천해라.<br>
-                나를 그 상황에 짚어 넣어라. 상황이 사람을 만든다.
-            </p>
-        </div>
+    <section id="section18" class="meta"
+             data-20000="left: 100%"
+             data-21000="left: 0%"
+    >
+        <p class="ct-desc">
+            <span>"메타인지"</span>
+            큰 꿈을 꾸되 실현 가능한 것들을 실천해라.<br>
+            나를 그 상황에 짚어 넣어라. 상황이 사람을 만든다.
+        </p>
     </section>
     <!--  SECTION : META END -->
     <!--  SECTION : CONTACT START -->
-    <section class="contact">
+    <section id="section19" class="contact"
+             data-21000="left: 100%"
+             data-22000="left: 0%"
+    >
         <div class="contact-inner">
             <div class="contact-content">
                 <div class="email">
@@ -297,5 +382,15 @@
     </section>
     <!--  SECTION : META END -->
 </div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/skrollr.min.js"></script>
+<!-- partial -->
+<script src='https://rawgit.com/naikus/svg-gauge/master/dist/gauge.min.js'></script>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js'></script>
+<script src="js/custom.js"></script>
 </body>
 </html>
