@@ -201,7 +201,7 @@ p.ct-desc {
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(100% + 400px);
+    width: calc(100% + 500px);
     height: 100vh;
     background: url(../images/bg20.jpg) no-repeat center 70%;
     background-size: 120%;
