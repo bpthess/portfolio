@@ -394,10 +394,15 @@ p.ct-desc {
     background: url('../images/myphoto/myphoto_7.jpg') no-repeat center/cover;
 }
 
-.img:nth-child(10) {
+.img:nth-child(8) {
     width: 350px;
     height: 470px;
     background: url('../images/myphoto/myphoto_8.jpg') no-repeat center/cover;
+}
+.img:nth-child(9) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_9.jpg') no-repeat center/cover;
 }
 
 
