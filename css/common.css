@@ -348,6 +348,49 @@ p.ct-desc {
     position: absolute;
 }
 
+.img:nth-child(1) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_1.png') no-repeat center/cover;
+}
+.img:nth-child(2) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_2.jpg') no-repeat center/cover;
+}
+.img:nth-child(3) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_3.jpg') no-repeat center/cover;
+}
+.img:nth-child(4) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_4.jpg') no-repeat center/cover;
+}
+.img:nth-child(5) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_5.jpg') no-repeat center/cover;
+}
+.img:nth-child(6) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_6.jpg') no-repeat center/cover;
+}
+.img:nth-child(7) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_7.jpg') no-repeat center/cover;
+}
+.img:nth-child(10) {
+    width: 350px;
+    height: 470px;
+    background: url('../images/myphoto/myphoto_8.jpg') no-repeat center/cover;
+}
+
+
+
 
 /*!********* SECTION : skill **********!*/
 /*#section5 {*/

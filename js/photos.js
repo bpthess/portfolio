@@ -1,14 +1,11 @@
 let xPos = 0;
 
 gsap.timeline()
-    .set('.ring', { rotationY:180, cursor:'grab' }) //set initial rotationY so the parallax jump happens off screen
+    .set('.ring', { rotationY:90, cursor:'grab' }) //set initial rotationY so the parallax jump happens off screen
     .set('.img',  { // apply transform rotations to each image
-        rotateY: (i)=> i*-36,
+        rotateY: (i)=> i*-46,
         transformOrigin: '50% 50% 500px',
         z: -500,
-        backgroundImage:(i)=>'url(images/myphoto/${imgNumber + 1}.jpg'+(i+5)+'/600/400/)',
-        // backgroundImage:(i) = "src('images/myphoto/${imgNumber + 1}.jpg')",
-        // backgroundImage:(i)=>"url('images/myphoto/i')",
         backgroundPosition:(i)=>getBgPos(i),
         backfaceVisibility:'hidden',
     })
@@ -45,7 +42,7 @@ function drag(e){
     if (e.touches) e.clientX = e.touches[0].clientX;
 
     gsap.to('.ring', {
-        rotationY: '-=' +( (Math.round(e.clientX)-xPos)%360 ),
+        rotationY: '-=' +( (Math.round(e.clientX)-xPos)%90 ),
         onUpdate:()=>{ gsap.set('.img', { backgroundPosition:(i)=>getBgPos(i) }) }
     });
 
@@ -60,5 +57,5 @@ function dragEnd(e){
 
 
 function getBgPos(i){ //returns the background-position string to create parallax movement in each image
-    return ( 100-gsap.utils.wrap(0,360,gsap.getProperty('.ring', 'rotationY')-180-i*36)/360*500 )+'px 0px';
+    return ( 100-gsap.utils.wrap(0,360,gsap.getProperty('.ring', 'rotationY')-180-i*36)/360*200 )+'px 0px';
 }
