@@ -1,9 +1,7 @@
 /*!* XEION CDN *!*/
 /*@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');*/
 
-/* Poppin Font CDN */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap');
-
+/* Chosunilbo_myungjo font CDN */
 @font-face {
     font-family: 'Chosunilbo_myungjo';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
@@ -46,15 +44,6 @@ textarea {
 
 ::-webkit-scrollbar {
     display: none !important;
-}
-
-.legend {
-    position: absolute;
-    font-size: 0;
-    width: 1px;
-    height: 1px;
-    text-indent: -9999px;
-    overflow: hidden;
 }
 
 
@@ -203,7 +192,7 @@ p.ct-desc {
     top: 0;
     width: calc(100% + 500px);
     height: 100vh;
-    background: url(../images/bg20.jpg) no-repeat center 70%;
+    background: url(../images/bg_02.jpg) no-repeat center 70%;
     background-size: 120%;
     z-index: -1;
 }
@@ -219,12 +208,12 @@ p.ct-desc {
     z-index: -1;
 }
 
-#section2 .record-inner {
+.record-inner {
     position: relative;
     width: 100%;
 }
 
-#section2 .record-inner > img {
+.record-inner > img {
     width: 100%;
     height: 100vh;
     object-fit: cover;
@@ -235,7 +224,7 @@ p.ct-desc {
     z-index: -1;
 }
 
-#section2 .record-content .desc {
+.record-content .desc {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -244,7 +233,7 @@ p.ct-desc {
     position: relative;
 }
 
-#section2 .record-content .desc:after {
+.record-content .desc:after {
     content: '';
     position: absolute;
     bottom: 180px;
@@ -252,36 +241,39 @@ p.ct-desc {
     transform: translateX(-50%);
     width: 92%;
     height: 1px;
-    background-color: #fff;
+    background-color: #ffFf;
 }
 
-#section2 .record-content .desc li {
+.record-content .desc li {
     font-size: 100px;
-    line-height: 0.86;
+    font-family: 'NexonLv1GothicLow';
     letter-spacing: -6.5px;
     color: #fff;
     position: relative;
     font-weight: bold;
 }
 
-#section2 .record-content .desc li:nth-child(1),
-#section2 .record-content .desc li:nth-child(3) {
+.record-content .desc li:nth-child(1),
+.record-content .desc li:nth-child(3) {
     top: 5px;
+    line-height: 0.9;
 }
 
-#section2 .record-content .desc li:nth-child(2),
-#section2 .record-content .desc li:nth-child(4) {
+.record-content .desc li:nth-child(2),
+.record-content .desc li:nth-child(4) {
     top: -5px;
+    line-height: 1.1;
+
 }
 
-#section2 .record-content .desc li span {
+.record-content .desc li span {
     display: block;
-    font-size: 30px;
+    font-size: 22px;
     letter-spacing: -2px;
-    line-height: 1.5;
-    font-weight: normal;
-
+    font-weight: lighter;
+    font-family: 'Krona One';
 }
+
 
 
 /********* SECTION : record **********/
