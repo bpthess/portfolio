@@ -1,6 +1,9 @@
 /*!* XEION CDN *!*/
 /*@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');*/
 
+/* poppins font CDN */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* Chosunilbo_myungjo font CDN */
 @font-face {
     font-family: 'Chosunilbo_myungjo';
@@ -49,9 +52,11 @@ textarea {
 
 /********* Common CSS **********/
 :root {
+    /*
     --chosun-font: 'Chosunilbo_myungjo';
     --gmarket-font: "G마켓 산스 TTF Bold";
     --Modern-font: "Modern No. 20";
+*/
 }
 
 .scroll {
@@ -102,7 +107,7 @@ header span a {
 }
 
 .container {
-    width: 1800vw;
+    width: 1800%;
     height: 100vh;
     overflow: hidden;
     position: fixed;
@@ -130,34 +135,34 @@ section h2.title {
     font-weight: bold;
 }
 
-section > div {
-}
+section > div {}
 
 p.ct-desc {
     line-height: 1.6;
     font-size: 24px;
-    font-family: var(--chosun-font);
+    font-family: 'Chosunilbo_myungjo';
     color: #fff;
     letter-spacing: -1px;
     text-align: center;
+    z-index: 100;
 }
 
 /* common : skrollr.css   */
 .hide-circle {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #69A3CC;
     left: 0;
     top: 0;
+    transform: translateY(0);
     position: absolute;
-
 }
 
 
 /********* SECTION : visual **********/
 
 #section1 {
-    z-index: 180;
+
     background: url(../images/bg_01.jpg) center no-repeat;
     background-size: cover;
     font-family: "Krona One";
@@ -182,15 +187,16 @@ p.ct-desc {
 
 /********* SECTION2 : record **********/
 #section2 {
-    z-index: 190;
     background-color: #000;
+    font-family: 'Poppins', sans-serif;
+    line-height: 0.86;
 }
 
 #section2 .bg {
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(100% + 500px);
+    width: calc(100% + 1000px);
     height: 100vh;
     background: url(../images/bg_02.jpg) no-repeat center 70%;
     background-size: 120%;
@@ -228,7 +234,7 @@ p.ct-desc {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px);
     flex: 1;
     position: relative;
 }
@@ -236,50 +242,45 @@ p.ct-desc {
 .record-content .desc:after {
     content: '';
     position: absolute;
-    bottom: 180px;
+    bottom: 160px;
     left: 50%;
     transform: translateX(-50%);
     width: 92%;
     height: 1px;
-    background-color: #ffFf;
+    background-color: #fff;
 }
 
 .record-content .desc li {
     font-size: 100px;
-    font-family: 'NexonLv1GothicLow';
-    letter-spacing: -6.5px;
     color: #fff;
     position: relative;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: -0.065em;
 }
 
 .record-content .desc li:nth-child(1),
 .record-content .desc li:nth-child(3) {
     top: 5px;
-    line-height: 0.9;
 }
 
 .record-content .desc li:nth-child(2),
 .record-content .desc li:nth-child(4) {
     top: -5px;
-    line-height: 1.1;
 
 }
 
 .record-content .desc li span {
     display: block;
-    font-size: 22px;
-    letter-spacing: -2px;
-    font-weight: lighter;
-    font-family: 'Krona One';
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: -0.065em;
 }
 
 
 
 /********* SECTION : record **********/
 #section3 {
-    background-color: #82B4D7;
-    z-index: 200;
+       background-color: #82B4D7;
 }
 
 #section3 > h2 {
@@ -300,12 +301,10 @@ p.ct-desc {
 /********* SECTION : aboutIntro **********/
 #section4 {
     background-color: #000;
-    z-index: 210;
 }
 
 /*   SECTION : 5 PHOTO  */
 #section5 {
-    z-index: 220;
 }
 
 .keyword {
@@ -320,10 +319,11 @@ p.ct-desc {
     margin: 0 8px;
     font-size: 18px;
     color: #fff;
-    font-family: Chosunilbo_myungjo;
+    font-family: 'Chosunilbo_myungjo';
 }
 
-.ring, .img {
+.ring,
+.img {
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
@@ -391,6 +391,7 @@ p.ct-desc {
     height: 470px;
     background: url('../images/myphoto/myphoto_8.jpg') no-repeat center/cover;
 }
+
 .img:nth-child(9) {
     width: 350px;
     height: 470px;
