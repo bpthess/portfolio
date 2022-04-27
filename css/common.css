@@ -154,6 +154,7 @@ p.ct-desc {
     background-color: #69A3CC;
     right: 0;
     top: 0;
+    transform: translate(0, 0);
     position: absolute;
 }
 
