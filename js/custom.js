@@ -6,7 +6,7 @@ $(function () {
     // Scroll Mode
     var s = skrollr.init({
         smoothScrolling: true,
-        smoothScrollingDuration: 500
+        smoothScrollingDuration: 700
     });
 
     window.addEventListener("scroll", () => {
