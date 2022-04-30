@@ -16,7 +16,13 @@ $(function () {
     })
 
 
-
+//    /* TypeIt - Welcome */
+//    $('.ct-desc').typeIt({
+//        strings: ["Business strategy.", "Innovation Plan.", "Creative Idea."], // 타이핑 텍스트 입력
+//        speed: 50, // 알파벳 타이핑 속도
+//        autoStart: false, // 자동 재생 사용
+//        breakLines: true, // 줄 바꿈 사용안함
+//    });
 
 
 
