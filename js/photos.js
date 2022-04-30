@@ -2,14 +2,14 @@ let xPos = 0;
 
 gsap.timeline()
     .set('.ring', { rotationY:90, cursor:'grab' }) //set initial rotationY so the parallax jump happens off screen
-    .set('.img',  { // apply transform rotations to each image
+    .set('.ph',  { // apply transform rotations to each image
         rotateY: (i)=> i*-40,
         transformOrigin: '50% 50% 500px',
         z: -500,
         backgroundPosition:(i)=>getBgPos(i),
         backfaceVisibility:'hidden',
     })
-    .from('.img', {
+    .from('.ph', {
         duration:1.5,
         y:200,
         opacity:0,
@@ -17,12 +17,12 @@ gsap.timeline()
         ease:'expo'
     })
     .add(()=>{
-        $('.img').on('mouseenter', (e)=>{
+        $('.ph').on('mouseenter', (e)=>{
             let current = e.currentTarget;
-            gsap.to('.img', {opacity:(i,t)=>(t==current)? 1:0.5, ease:'power3'})
+            gsap.to('.ph', {opacity:(i,t)=>(t==current)? 1:0.5, ease:'power3'})
         })
-        $('.img').on('mouseleave', (e)=>{
-            gsap.to('.img', {opacity:1, ease:'power2.inOut'})
+        $('.ph').on('mouseleave', (e)=>{
+            gsap.to('.ph', {opacity:1, ease:'power2.inOut'})
         })
     }, '-=0.5')
 
@@ -43,7 +43,7 @@ function drag(e){
 
     gsap.to('.ring', {
         rotationY: '-=' +( (Math.round(e.clientX)-xPos)%90 ),
-        onUpdate:()=>{ gsap.set('.img', { backgroundPosition:(i)=>getBgPos(i) }) }
+        onUpdate:()=>{ gsap.set('.ph', { backgroundPosition:(i)=>getBgPos(i) }) }
     });
 
     xPos = Math.round(e.clientX);

@@ -94,54 +94,54 @@ $(function () {
     // })();
 
 
-
-    var gauge1 = Gauge(
-        document.getElementById("gauge1"), {
-            max: 100,
-            dialStartAngle: -90,
-            dialEndAngle: -90.001,
-            value: 100,
-            label: function (value) {
-                return Math.round(value) + "/" + this.max;
-            }
-        }
-    )
-    gauge1();
-    var gauge2 = Gauge(
-        document.getElementById("gauge2"), {
-            max: 100,
-            dialStartAngle: -90,
-            dialEndAngle: -90.001,
-            value: 100,
-            label: function (value) {
-                return Math.round(value) + "/" + this.max;
-            }
-        }
-    )
-    gauge2();
-    var gauge3 = Gauge(
-        document.getElementById("gauge3"), {
-            max: 100,
-            dialStartAngle: -90,
-            dialEndAngle: -90.001,
-            value: 100,
-            label: function (value) {
-                return Math.round(value) + "/" + this.max;
-            }
-        }
-    )
-    gauge3();
-    var gauge4 = Gauge(
-        document.getElementById("gauge4"), {
-            max: 100,
-            dialStartAngle: -90,
-            dialEndAngle: -90.001,
-            value: 100,
-            label: function (value) {
-                return Math.round(value) + "/" + this.max;
-            }
-        }
-    )
-    gauge4();
+//
+//    var gauge1 = Gauge(
+//        document.getElementById("gauge1"), {
+//            max: 100,
+//            dialStartAngle: -90,
+//            dialEndAngle: -90.001,
+//            value: 100,
+//            label: function (value) {
+//                return Math.round(value) + "/" + this.max;
+//            }
+//        }
+//    )
+//    gauge1();
+//    var gauge2 = Gauge(
+//        document.getElementById("gauge2"), {
+//            max: 100,
+//            dialStartAngle: -90,
+//            dialEndAngle: -90.001,
+//            value: 100,
+//            label: function (value) {
+//                return Math.round(value) + "/" + this.max;
+//            }
+//        }
+//    )
+//    gauge2();
+//    var gauge3 = Gauge(
+//        document.getElementById("gauge3"), {
+//            max: 100,
+//            dialStartAngle: -90,
+//            dialEndAngle: -90.001,
+//            value: 100,
+//            label: function (value) {
+//                return Math.round(value) + "/" + this.max;
+//            }
+//        }
+//    )
+//    gauge3();
+//    var gauge4 = Gauge(
+//        document.getElementById("gauge4"), {
+//            max: 100,
+//            dialStartAngle: -90,
+//            dialEndAngle: -90.001,
+//            value: 100,
+//            label: function (value) {
+//                return Math.round(value) + "/" + this.max;
+//            }
+//        }
+//    )
+//    gauge4();
 
 });
