@@ -63,13 +63,13 @@ textarea {
     position: fixed;
     left: 10px;
     top: 10px;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
     z-index: 10000;
     text-align: center;
-    line-height: 40px;
+    line-height: 45px;
     font-family: 'Abel', sans-serif;
 }
 
@@ -113,6 +113,7 @@ header span a {
     position: fixed;
     left: 0;
     top: 0;
+    background: #000;
 }
 
 section {
@@ -173,6 +174,10 @@ p.ct-desc {
     position: fixed;
     top: 0;
     left: 0;
+    /*
+    background: url(../images/bg_01.jpg) no-repeat fixed 0 center/cover;
+    background-attachment: fixed;
+*/
 }
 
 #section1 .bg:first-child {
@@ -186,19 +191,24 @@ p.ct-desc {
 #section1 .bg-l {
     width: 50%;
     height: 100%;
-    background: url(../images/bg_01.jpg) no-repeat 0 center/cover;
+    background: url(../images/bg_01.jpg) no-repeat fixed 0 center/cover;
     background-attachment: fixed;
     position: absolute;
     top: 0;
     left: 0;
+    /*
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+*/
 }
 
 #section1 .bg-r {
     width: 50%;
     height: 100%;
-    position: absolute;
     background: url(../images/bg_01.jpg) no-repeat fixed 0 center/cover;
     background-attachment: fixed;
+    position: absolute;
     top: 0;
     left: 50%;
 }
@@ -314,11 +324,12 @@ section h1 {
 
 #section2 ul.desc {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: flex-end;
     width: 100%;
     height: calc(100vh - 95px);
     position: relative;
+    padding: 0 120px;
 }
 
 #section2 ul.desc:after {
@@ -327,7 +338,7 @@ section h1 {
     bottom: 170px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: calc(100% - 240px);
     height: 1px;
     background-color: #fff;
 }
@@ -367,7 +378,37 @@ section h1 {
 #section3 {}
 
 #section3 .bg {
-    background: url() no-repeat;
+    background: url(../images/bg_05.jpg) no-repeat center top/100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: brightness(0.8);
+}
+
+#section4 .bg {
+    /*    background: url(https://img.freepik.com/free-photo/hand-potter-doing-clay-pot-background_488220-8379.jpg?w=1060) no-repeat center center/100%;*/
+    background: url(../images/bg_06.jpg) no-repeat center top/100%;
+    width: calc(100% + 540px);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+#section5 .bg {
+    background: url(../images/bg_07.jpg) no-repeat center center/100%;
+    width: calc(100% + 400px);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: brightness(0.7);
 }
 
 .site {
@@ -406,7 +447,47 @@ section h1 {
     font-weight: 100;
     display: inline-block;
     margin: 60px 7px 10px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
 }
+
+.site .btn a:before,
+.site .btn a:after {
+    content: attr(data-text);
+    position: absolute;
+    padding: inherit;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    transition: 0.3s;
+    top: 0;
+    left: 0;
+}
+
+.site .btn a:before {
+    background: #fff;
+    top: 0;
+    left: 0;
+    color: #000;
+}
+
+.site .btn a:after {
+    background: #000;
+    top: 100%;
+    left: 0;
+}
+
+.site .btn a:hover:before {
+    top: -100%;
+    left: 0;
+}
+
+.site .btn a:hover:after {
+    top: 0;
+    left: 0;
+}
+
 
 /********* SECTION : aboutIntro **********/
 /*
