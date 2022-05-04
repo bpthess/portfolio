@@ -412,14 +412,6 @@ section h1 {
     height: 200vh;
 }
 
-#section6 .inner {
-    height: 150vh;
-}
-
-#section6 .site {
-    justify-content: flex-start;
-}
-
 #section6 .bg {
     transform: translate(-50%, -50%);
     left: 50%;
