@@ -122,7 +122,6 @@ section {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,8 +259,7 @@ section h1 {
 }
 
 /********* SECTION2 : record **********/
-#section2 {
-}
+#section2 {}
 
 /*
 #section2 h1 {
@@ -410,6 +408,29 @@ section h1 {
     filter: brightness(0.7);
 }
 
+#section6 {
+    height: 200vh;
+}
+
+#section6 .inner {
+    height: 150vh;
+}
+
+#section6 .site {
+    justify-content: flex-start;
+}
+
+#section6 .bg {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: calc(100% + 400px);
+    background: #fff;
+    position: fixed;
+    filter: brightness(1);
+}
+
 .site {
     display: flex;
     align-items: center;
@@ -485,6 +506,21 @@ section h1 {
 .site .btn a:hover:after {
     top: 0;
     left: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+#section7 {
+    /*    background: #fff;*/
+}
+
+#section7 h1 {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(60deg, #ff5858, #f09819);
+    animation: bg 1s infinite ease;
 }
 
 
