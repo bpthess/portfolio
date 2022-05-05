@@ -509,11 +509,43 @@ svg:not(:root) {
 }
 
 #section7 h1 {
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-image: linear-gradient(60deg, #ff5858, #f09819);
-    animation: bg 1s infinite ease;
+    color: #000;
 }
+
+.circle-right {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    background: linear-gradient(60deg, #ff5858, #f09819);
+    animation: bg 3s infinite ease;
+    transition: 2s ease both;
+}
+
+/*
+@keyframes circle-right {
+    0% {
+        opacity: 0;
+        transform: translate(-2000px, -50%);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-30px, -50%);
+    }
+
+    80% {
+        transform: translate(-10px, -50%);
+    }
+
+    100% {
+        transform: translate(0, -50%);
+    }
+}
+*/
 
 
 /********* SECTION : aboutIntro **********/
