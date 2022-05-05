@@ -382,7 +382,7 @@ section h1 {
     left: 0;
     top: 0;
     z-index: -1;
-    filter: brightness(0.8);
+    filter: brightness(0.7);
 }
 
 #section4 .bg {
@@ -394,7 +394,7 @@ section h1 {
     left: 0;
     top: 0;
     z-index: -1;
-    filter: brightness(0.6);
+    filter: brightness(0.7);
 }
 
 #section5 .bg {
@@ -422,6 +422,7 @@ section h1 {
     position: fixed;
     filter: brightness(1);
 }
+
 #section6 .bg svg {
     width: calc(100% + 300px);
 }
@@ -433,6 +434,7 @@ section h1 {
     flex-direction: column;
     height: 100vh;
     color: #fff;
+    z-index: 10000;
 }
 
 .site h2 {
@@ -452,6 +454,7 @@ section h1 {
     text-align: center;
     line-height: 1.5;
     padding: 5px 0 10px;
+    color: #fff;
 }
 
 .site .btn a {
@@ -538,7 +541,7 @@ svg:not(:root) {
     top: 50%;
     transform: translate(0, -50%);
     opacity: 1;
-    background: transparent;
+    background: #000;
     overflow: hidden;
 }
 
@@ -558,6 +561,8 @@ svg:not(:root) {
     transform: translateY(-50%);
     color: #fff;
     width: 500px;
+    height: auto;
+    overflow: hidden;
 }
 
 #section7 .desc h2 {
