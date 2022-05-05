@@ -422,6 +422,9 @@ section h1 {
     position: fixed;
     filter: brightness(1);
 }
+#section6 .bg svg {
+    width: calc(100% + 300px);
+}
 
 .site {
     display: flex;
@@ -535,7 +538,7 @@ svg:not(:root) {
     top: 50%;
     transform: translate(0, -50%);
     opacity: 1;
-    background: #ccc;
+    background: transparent;
     overflow: hidden;
 }
 
@@ -566,7 +569,6 @@ svg:not(:root) {
 #section7 .desc p {
     font-size: 18px;
     letter-spacing: -2px;
-    font-weight: 300;
 }
 
 
