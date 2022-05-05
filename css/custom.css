@@ -521,31 +521,54 @@ svg:not(:root) {
     top: 50%;
     transform: translate(50%, -50%);
     background: linear-gradient(60deg, #ff5858, #f09819);
-    animation: bg 3s infinite ease;
+    animation: bg 2.5s infinite ease;
     transition: 2s ease both;
 }
 
-/*
-@keyframes circle-right {
-    0% {
-        opacity: 0;
-        transform: translate(-2000px, -50%);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translate(-30px, -50%);
-    }
-
-    80% {
-        transform: translate(-10px, -50%);
-    }
-
-    100% {
-        transform: translate(0, -50%);
-    }
+.mini-circle {
+    width: 2000px;
+    height: 1500px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    opacity: 1;
+    background: #ccc;
+    overflow: hidden;
 }
-*/
+
+.mini-circle iframe {
+    width: inherit;
+    height: inherit;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: relative;
+    left: 23%;
+}
+
+#section7 .desc {
+    position: absolute;
+    right: 10%;
+    top: 49%;
+    transform: translateY(-50%);
+    color: #fff;
+    width: 500px;
+}
+
+#section7 .desc h2 {
+    font-size: 70px;
+    line-height: 1.2;
+    margin-bottom: 1.5rem
+}
+
+#section7 .desc p {
+    font-size: 18px;
+    letter-spacing: -2px;
+    font-weight: 300;
+}
+
 
 
 /********* SECTION : aboutIntro **********/
