@@ -398,7 +398,6 @@ section h1 {
     width: calc(100% + 400px);
     background: #fff;
     position: absolute;
-    filter: brightness(1);
     z-index: -1;
 }
 
@@ -421,6 +420,7 @@ section h1 {
 
 #section7 .site p {
     color: #000;
+    filter: contrast(20px)
 }
 
 
