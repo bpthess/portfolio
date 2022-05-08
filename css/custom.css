@@ -22,6 +22,11 @@
 
 
 
+body {
+    height: 2000px;
+}
+
+
 /* Reset CSS */
 * {
     box-sizing: border-box;
@@ -202,8 +207,8 @@ p.ct-desc {
     background: url(../images/bg_01.jpg) no-repeat fixed 0 center/cover;
     background-attachment: fixed;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0%;
+    left: 0%;
     /*
     top: 50%;
     left: 50%;
@@ -288,12 +293,11 @@ section h1 {
     height: 100vh;
     overflow: hidden;
     background: url(../images/bg_03.jpg) no-repeat center center/cover;
-    background-size: 120%;
-    background-attachment: fixed;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .reverse {
@@ -306,7 +310,8 @@ section h1 {
     z-index: 1000;
 }
 
-#section2 h1 {
+
+#section2 .inner h1 {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-image: linear-gradient(60deg, #ff5858, #f09819);
@@ -323,59 +328,8 @@ section h1 {
     }
 }
 
-
-#section2 .inner {
-    width: 100%;
-}
-
-#section2 ul.desc {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    height: calc(100vh - 95px);
-    position: relative;
-    padding: 0 120px;
-}
-
-#section2 ul.desc:after {
-    content: '';
-    position: absolute;
-    bottom: 170px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 240px);
-    height: 1px;
-    background-color: #fff;
-}
-
-#section2 ul.desc li {
-    font-size: 100px;
+#section2 .bg h1 {
     color: #fff;
-    position: relative;
-    font-weight: 700;
-    letter-spacing: -0.065em;
-    font-family: 'Poppins', sans-serif;
-    line-height: 0.86;
-}
-
-#section2 ul.desc li:nth-child(1),
-#section2 ul.descli:nth-child(3) {
-    top: 5px;
-}
-
-#section2 ul.desc li:nth-child(2),
-#section2 ul.desc li:nth-child(4) {
-    top: -5px;
-
-}
-
-#section2 ul.desc li span {
-    display: block;
-    font-size: 30px;
-    font-weight: 300;
-    letter-spacing: -0.065em;
-    margin: 5px 0;
 }
 
 
@@ -384,57 +338,142 @@ section h1 {
 #section3 {}
 
 #section3 .bg {
-    background: url(../images/bg_05.jpg) no-repeat center top/100%;
+    background: url(../images/bg_02.jpg) no-repeat center top/cover;
+    /*    background: url(https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80);*/
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0;
-    top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
     z-index: -1;
-    filter: brightness(0.7);
+
 }
+
 
 #section4 .bg {
     /*    background: url(https://img.freepik.com/free-photo/hand-potter-doing-clay-pot-background_488220-8379.jpg?w=1060) no-repeat center center/100%;*/
-    background: url(../images/bg_06.jpg) no-repeat center top/100%;
-    width: calc(100% + 540px);
-    height: 100%;
+    background: url(../images/bg_06.jpg) no-repeat center top/cover;
     position: absolute;
-    left: 0;
-    top: 0;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: -1;
-    filter: brightness(0.7);
 }
 
 #section5 .bg {
-    background: url(../images/bg_07.jpg) no-repeat center center/100%;
-    width: calc(100% + 400px);
-    height: 100%;
+    background: url(../images/bg_05.jpg) no-repeat center top/100%;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     position: absolute;
-    left: 0;
-    top: 0;
     z-index: -1;
-    filter: brightness(0.7);
-}
-
-#section6 {
-    height: 200vh;
 }
 
 #section6 .bg {
+    background: url(../images/bg_07.jpg) no-repeat center center/100%;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: -1;
+}
+
+#section7 {
+    height: 200vh;
+}
+
+#section7 .bg {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
     height: 100%;
     width: calc(100% + 400px);
     background: #fff;
-    position: fixed;
+    position: absolute;
     filter: brightness(1);
+    z-index: -1;
 }
 
-#section6 .bg svg {
-    width: calc(100% + 300px);
+#section7 .site {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+#section7 text {
+    font-size: 5em;
+    font-weight: bold;
+
+}
+
+#section7 .site h2 {
+    opacity: 0 !important;
+}
+
+#section7 .site p {
+    color: #000;
+}
+
+
+
+
+#section8 h1 {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    /*    background-image: linear-gradient(35deg, #d676eb 30%, #8227ff 70%);*/
+
+    /*    background-image: linear-gradient(35deg, #fbf4ec 0%, #ecd7c8 16.5%, #eea4bc 33%, #be88c4 49.5%, #9186e7 66%, #92c9f9 82.5%, #c7f8ff 100%);*/
+
+    /*    background-image: linear-gradient(180deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%);*/
+    background-image: linear-gradient(90deg, #FF9FE1, #8727FF);
+    animation: bg2 1s infinite ease;
+}
+
+
+@keyframes bg2 {
+    0% {
+        /*        background-image: linear-gradient(35deg, #d676eb 30%, #8227ff 70%);*/
+        /*        background-image: linear-gradient(35deg, #fbf4ec 0%, #ecd7c8 16.5%, #eea4bc 33%, #be88c4 49.5%, #9186e7 66%, #92c9f9 82.5%, #c7f8ff 100%);*/
+
+        /*        background-image: linear-gradient(30deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%)*/
+        background-image: linear-gradient(30deg, #FF9FE1, #8727FF)
+    }
+
+    100% {
+        /*        background-image: linear-gradient(360deg, #d676eb 30%, #8227ff 70%);*/
+        /*        background-image: linear-gradient(360deg, #fbf4ec 0%, #ecd7c8 16.5%, #eea4bc 33%, #be88c4 49.5%, #9186e7 66%, #92c9f9 82.5%, #c7f8ff 100%);*/
+
+        /*        background-image: linear-gradient(360deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%)*/
+        background-image: linear-gradient(180deg, #FF9FE1, #8727FF)
+    }
+}
+
+
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/45/Ss2c5MVASdGkVHOwG6n9_Imogene%20Pass.jpg?dpr=1&auto=format&fit=crop&w=1500&h=997&q=80&cs=tinysrgb&crop=');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    mask: url('http://www.supah.it/dribbble/video-clip-mask.png?v=1');
+    mask-size: 1800% 100%;
+    -webkit-mask-size: 1800% 100%;
+}
+
+
 
 .site {
     display: flex;
@@ -450,9 +489,14 @@ section h1 {
     font-family: "Krona One";
     font-size: 5vw;
     font-weight: bold;
+    /*
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-image: linear-gradient(0deg, #67aa80, #c4ffda);
+*/
+    /*    background-image: linear-gradient(0deg, #43c372, #c4ffda);*/
+    /*background-image: linear-gradient(0deg, #84fab0, #8df3f4);*/
+    /*  background-image: linear-gradient(to left, #e2eb3e, #45b649);*/
+    color: #fff;
     margin-bottom: 2vw;
 }
 
@@ -515,17 +559,10 @@ section h1 {
     left: 0;
 }
 
-svg:not(:root) {
-    overflow: hidden;
-}
-
 #section7 {
     /*    background: #fff;*/
 }
 
-#section7 h1 {
-    color: #000;
-}
 
 .circle-right {
     width: 500px;
@@ -535,7 +572,8 @@ svg:not(:root) {
     left: -50%;
     top: 50%;
     transform: translate(50%, -50%);
-    background: linear-gradient(60deg, #ff5858, #f09819);
+    /*    background: linear-gradient(60deg, #ff5858, #f09819);*/
+    background: linear-gradient(15deg, #e04f30, #fad640);
     animation: bg 2.5s infinite ease;
     transition: 2s ease both;
 }
