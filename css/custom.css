@@ -693,6 +693,7 @@ canvas {
     font-weight: 900;
     font-size: 4.5vw;
     line-height: 1.1;
+    letter-spacing: 6.8px;
     margin-bottom: 0.75vh;
     pointer-events: none;
     font-family: 'GongGothicLight';
