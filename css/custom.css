@@ -691,10 +691,11 @@ canvas {
 
 .slider__content h1 {
     font-weight: 900;
-    font-size: 9vh;
-    line-height: 1;
+    font-size: 4.5vw;
+    line-height: 1.1;
     margin-bottom: 0.75vh;
     pointer-events: none;
+    font-family: 'GongGothicLight';
     text-shadow: 0 0.375vh 0.75vh rgba(0, 0, 0, 0.1);
 }
 
