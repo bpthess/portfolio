@@ -22,9 +22,7 @@
 
 
 
-body {
-    height: 2000px;
-}
+body {}
 
 
 /* Reset CSS */
@@ -66,6 +64,7 @@ textarea {
 
 /********* Common CSS **********/
 :root {
+    --fontSize: 4;
     /*
     --chosun-font: 'Chosunilbo_myungjo';
     --gmarket-font: "G마켓 산스 TTF Bold";
@@ -549,6 +548,92 @@ section h1 {
     }
 }
 
+.outer {
+    font-stretch: 100% 800%;
+    font-weight: 200 800;
+    font-display: block;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 1000vh;
+    background: black;
+}
+
+.stage {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    visibility: hidden
+}
+
+.tube {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    -webkit-perspective: 100vw;
+    perspective: 100vw;
+}
+
+.tube__inner {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: 'Bandeins-Strange';
+    font-size: calc(var(--fontSize) * 1vw);
+    font-stretch: 800%;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+
+.bg-circle {
+    background: #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+
+#section8 .inner {}
+
+canvas {
+    display: block;
+}
+
+#canvas_container {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
+    background-size: cover;
+    backdrop-filter: brightness(50%);
+}
+
+
+/*
 
 #section8 .bg {
     width: 100%;
@@ -588,6 +673,7 @@ section h1 {
     background-size: cover;
     z-index: -1;
 }
+*/
 
 /*
 #section8 .bg1 {
@@ -602,6 +688,7 @@ section h1 {
 }
 */
 
+/*
 
 #section8 .bg2 {
     width: 100%;
@@ -624,6 +711,7 @@ section h1 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+*/
 
 
 

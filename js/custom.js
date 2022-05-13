@@ -4,10 +4,7 @@ $(function () {
 
     /* Direct */
     // Scroll Mode
-    var s = skrollr.init({
-        smoothScrolling: true,
-        smoothScrollingDuration: 700
-    });
+
 
     window.addEventListener("scroll", () => {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY;
@@ -15,14 +12,16 @@ $(function () {
         document.querySelector(".scroll").innerText = Math.round(scrollTop);
     })
 
+});
 
-//    /* TypeIt - Welcome */
-//    $('.ct-desc').typeIt({
-//        strings: ["Business strategy.", "Innovation Plan.", "Creative Idea."], // 타이핑 텍스트 입력
-//        speed: 50, // 알파벳 타이핑 속도
-//        autoStart: false, // 자동 재생 사용
-//        breakLines: true, // 줄 바꿈 사용안함
-//    });
+
+    //    /* TypeIt - Welcome */
+    //    $('.ct-desc').typeIt({
+    //        strings: ["Business strategy.", "Innovation Plan.", "Creative Idea."], // 타이핑 텍스트 입력
+    //        speed: 50, // 알파벳 타이핑 속도
+    //        autoStart: false, // 자동 재생 사용
+    //        breakLines: true, // 줄 바꿈 사용안함
+    //    });
 
 
 
@@ -100,54 +99,53 @@ $(function () {
     // })();
 
 
-//
-//    var gauge1 = Gauge(
-//        document.getElementById("gauge1"), {
-//            max: 100,
-//            dialStartAngle: -90,
-//            dialEndAngle: -90.001,
-//            value: 100,
-//            label: function (value) {
-//                return Math.round(value) + "/" + this.max;
-//            }
-//        }
-//    )
-//    gauge1();
-//    var gauge2 = Gauge(
-//        document.getElementById("gauge2"), {
-//            max: 100,
-//            dialStartAngle: -90,
-//            dialEndAngle: -90.001,
-//            value: 100,
-//            label: function (value) {
-//                return Math.round(value) + "/" + this.max;
-//            }
-//        }
-//    )
-//    gauge2();
-//    var gauge3 = Gauge(
-//        document.getElementById("gauge3"), {
-//            max: 100,
-//            dialStartAngle: -90,
-//            dialEndAngle: -90.001,
-//            value: 100,
-//            label: function (value) {
-//                return Math.round(value) + "/" + this.max;
-//            }
-//        }
-//    )
-//    gauge3();
-//    var gauge4 = Gauge(
-//        document.getElementById("gauge4"), {
-//            max: 100,
-//            dialStartAngle: -90,
-//            dialEndAngle: -90.001,
-//            value: 100,
-//            label: function (value) {
-//                return Math.round(value) + "/" + this.max;
-//            }
-//        }
-//    )
-//    gauge4();
+    //
+    //    var gauge1 = Gauge(
+    //        document.getElementById("gauge1"), {
+    //            max: 100,
+    //            dialStartAngle: -90,
+    //            dialEndAngle: -90.001,
+    //            value: 100,
+    //            label: function (value) {
+    //                return Math.round(value) + "/" + this.max;
+    //            }
+    //        }
+    //    )
+    //    gauge1();
+    //    var gauge2 = Gauge(
+    //        document.getElementById("gauge2"), {
+    //            max: 100,
+    //            dialStartAngle: -90,
+    //            dialEndAngle: -90.001,
+    //            value: 100,
+    //            label: function (value) {
+    //                return Math.round(value) + "/" + this.max;
+    //            }
+    //        }
+    //    )
+    //    gauge2();
+    //    var gauge3 = Gauge(
+    //        document.getElementById("gauge3"), {
+    //            max: 100,
+    //            dialStartAngle: -90,
+    //            dialEndAngle: -90.001,
+    //            value: 100,
+    //            label: function (value) {
+    //                return Math.round(value) + "/" + this.max;
+    //            }
+    //        }
+    //    )
+    //    gauge3();
+    //    var gauge4 = Gauge(
+    //        document.getElementById("gauge4"), {
+    //            max: 100,
+    //            dialStartAngle: -90,
+    //            dialEndAngle: -90.001,
+    //            value: 100,
+    //            label: function (value) {
+    //                return Math.round(value) + "/" + this.max;
+    //            }
+    //        }
+    //    )
+    //    gauge4();
 
-});
