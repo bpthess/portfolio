@@ -1,197 +1,275 @@
-let renderer,
-scene,
-camera,
-sphereBg,
-nucleus,
-stars,
-controls,
-container = document.getElementById("canvas_container"),
-timeout_Debounce,
-noise = new SimplexNoise(),
-cameraSpeed = 0,
-blobScale = 3;
+   import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
+        import {
+            OrbitControls
+        } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
+        import {
+            EffectComposer
+        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/EffectComposer.js';
+        import {
+            RenderPass
+        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/RenderPass.js';
+        import {
+            ShaderPass
+        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/ShaderPass.js';
+        import {
+            UnrealBloomPass
+        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 
+        // 화면 
+        let scene = new THREE.Scene();
 
-init();
-animate();
+        // 카메라
+        let camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 1, 1000);
+        camera.position.set(0, 0, 10);
 
+        // 렌더링
+        let renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('canvas-dom')
+        });
+        renderer.setSize(innerWidth, innerHeight);
+        renderer.toneMapping = THREE.ReinhardToneMapping;
 
-function init() {
-    scene = new THREE.Scene();
+        // 화면 사이즈
+        window.addEventListener("resize", () => {
+            camera.aspect = innerWidth / innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(innerWidth, innerHeight);
+            bloomComposer.setSize(innerWidth, innerHeight);
+            finalComposer.setSize(innerWidth, innerHeight);
+            rt.setSize(innerWidth, innerHeight);
+            globalUniforms.aspect.value = camera.aspect;
+        })
 
-    camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 1000)
-    camera.position.set(0,0,230);
+        // 컨트롤
+        let controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.enableDamping = true;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed *= 0.25;
 
-    const directionalLight = new THREE.DirectionalLight("#fff", 2);
-    directionalLight.position.set(0, 50, -20);
-    scene.add(directionalLight);
+        let cubeMap = createCubeMap();
 
-    let ambientLight = new THREE.AmbientLight("#ffffff", 1);
-    ambientLight.position.set(0, 20, 20);
-    scene.add(ambientLight);
+        // 조명
+        let light = new THREE.DirectionalLight(0xffffff, 1.75);
+        light.position.setScalar(1);
+        scene.add(light, new THREE.AmbientLight(0xffffff, 0.25));
 
-    renderer = new THREE.WebGLRenderer({
-        antialias: true,
-        alpha: true
-    });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
+        let globalUniforms = {
+            bloom: {
+                value: 0
+            },
+            time: {
+                value: 0
+            },
+            aspect: {
+                value: innerWidth / innerHeight
+            }
+        }
 
-    //OrbitControl
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 4;
-    controls.minDistance = 190;
-    controls.maxDistance = 50;
-    controls.enablePan = false; 
-    
+        // 객체 설정
+        let g = new THREE.IcosahedronGeometry(1, 70);
+        let localUniforms = {
+            color1: {
+                value: new THREE.Color(0xff3232)
+            },
+            color2: {
+                value: new THREE.Color(0x0032ff)
+            }
+        }
+        let m = new THREE.MeshStandardMaterial({
+            roughness: 0.125,
+            metalness: 0.875,
+            envMap: cubeMap,
+            onBeforeCompile: shader => {
+                shader.uniforms.bloom = globalUniforms.bloom;
+                shader.uniforms.time = globalUniforms.time;
+                shader.uniforms.color1 = localUniforms.color1;
+                shader.uniforms.color2 = localUniforms.color2;
+                shader.vertexShader = `
+                    uniform float time;
+                    varying vec3 rPos;
+                    ${document.getElementById( 'noiseFS' ).textContent}
+                    float noise(vec3 p){
+                        return cnoise(vec4(p, time));
+                    }
+                    vec3 getPos(vec3 p){
+                        return p * (4. + noise(p * 3.) * 2.);
+                    }
+                    ${shader.vertexShader}
+                    `.replace(
+                        `#include <beginnormal_vertex>`,
+                        `#include <beginnormal_vertex>
+      
+                    vec3 p0 = getPos(position);
+        
+                    float theta = .1; 
+                    vec3 vecTangent = normalize(cross(p0, vec3(1.0, 0.0, 0.0)) + cross(p0, vec3(0.0, 1.0, 0.0)));
+                    vec3 vecBitangent = normalize(cross(vecTangent, p0));
+                    vec3 ptTangentSample = getPos(normalize(p0 + theta * normalize(vecTangent)));
+                    vec3 ptBitangentSample = getPos(normalize(p0 + theta * normalize(vecBitangent)));
+                    
+                    objectNormal = normalize(cross(ptBitangentSample - p0, ptTangentSample - p0));
+                    `
+                    )
+                    .replace(
+                        `#include <begin_vertex>`,
+                        `#include <begin_vertex>
+                            transformed = p0;
+                            rPos = transformed;
+                        `
+                    );
+                //console.log(shader.vertexShader);
+                shader.fragmentShader = `
+                    #define ss(a, b, c) smoothstep(a, b, c)
+                    uniform float bloom;
+                    uniform vec3 color1;
+                    uniform vec3 color2;
+                    varying vec3 rPos;
+                    ${shader.fragmentShader}
+                `.replace(
+                        `vec4 diffuseColor = vec4( diffuse, opacity );`,
+                        `vec3 col = mix(color1, color2, ss(2., 6., length(rPos)));
+                    vec4 diffuseColor = vec4( col, opacity );
+                    `)
+                    .replace(
+                        `#include <dithering_fragment>`,
+                        `#include <dithering_fragment>
+        
+                        float coord = length(rPos) * 4.;
+                        float line = abs(fract(coord - 0.5) - 0.5) / fwidth(coord) / 1.25;
+                        float grid = 1.0 - min(line, 1.0);
+        
+                        gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0), bloom);
+                        gl_FragColor.rgb = mix(gl_FragColor.rgb, col * 2., grid);
+                    `
+                    );
+            }
+        });
+        let o = new THREE.Mesh(g, m);
+        scene.add(o);
 
-    const loader = new THREE.TextureLoader();
-    const textureSphereBg = loader.load('https://i.ibb.co/4gHcRZD/bg3-je3ddz.jpg');
-    const texturenucleus = loader.load('https://i.ibb.co/hcN2qXk/star-nc8wkw.jpg');
-    const textureStar = loader.load("https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png");
-    const texture1 = loader.load("https://i.ibb.co/F8by6wW/p2-b3gnym.png");  
-    const texture2 = loader.load("https://i.ibb.co/yYS2yx5/p3-ttfn70.png");
-    const texture4 = loader.load("https://i.ibb.co/yWfKkHh/p4-avirap.png");
+        // BLOOM
+        const params = {
+            exposure: 1,
+            bloomStrength: 1,
+            bloomThreshold: 0,
+            bloomRadius: 0
+        };
 
+        const renderScene = new RenderPass(scene, camera);
 
-    /*  Nucleus  */   
-    texturenucleus.anisotropy = 16;
-    let icosahedronGeometry = new THREE.IcosahedronGeometry(30, 10);
-    let lambertMaterial = new THREE.MeshPhongMaterial({ map: texturenucleus });
-    nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
-    scene.add(nucleus);
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        bloomPass.threshold = params.bloomThreshold;
+        bloomPass.strength = params.bloomStrength;
+        bloomPass.radius = params.bloomRadius;
 
+        const bloomComposer = new EffectComposer(renderer);
+        bloomComposer.renderToScreen = false;
+        bloomComposer.addPass(renderScene);
+        bloomComposer.addPass(bloomPass);
 
-    /*    Sphere  Background   */
-    textureSphereBg.anisotropy = 16;
-    let geometrySphereBg = new THREE.SphereBufferGeometry(150, 40, 40);
-    let materialSphereBg = new THREE.MeshBasicMaterial({
-        side: THREE.BackSide,
-        map: textureSphereBg,
-    });
-    sphereBg = new THREE.Mesh(geometrySphereBg, materialSphereBg);
-    scene.add(sphereBg);
+        const finalPass = new ShaderPass(
+            new THREE.ShaderMaterial({
+                uniforms: {
+                    baseTexture: {
+                        value: null
+                    },
+                    bloomTexture: {
+                        value: bloomComposer.renderTarget2.texture
+                    }
+                },
+                vertexShader: document.getElementById('vertexshader').textContent,
+                fragmentShader: document.getElementById('fragmentshader').textContent,
+                defines: {}
+            }), 'baseTexture'
+        );
+        finalPass.needsSwap = true;
 
+        const finalComposer = new EffectComposer(renderer);
+        finalComposer.addPass(renderScene);
+        finalComposer.addPass(finalPass);
 
-    /*    Moving Stars   */
-    let starsGeometry = new THREE.Geometry();
+        // 백그라운드 설정
+        let rt = new THREE.WebGLRenderTarget(innerWidth, innerHeight);
+        scene.background = rt.texture;
+        let bCam = new THREE.Camera();
+        let bScn = new THREE.Scene();
+        let bQuad = new THREE.Mesh(
+            new THREE.PlaneGeometry(2, 2),
+            new THREE.ShaderMaterial({
+                uniforms: {
+                    time: globalUniforms.time,
+                    aspect: globalUniforms.aspect,
+                    baseColor: {
+                        value: new THREE.Color(0x160832)
+                    }
+                },
+                vertexShader: `
+                    varying vec2 vUv;
+                    void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+                }`,
+                fragmentShader: `
+                    #define ss(a, b, c) smoothstep(a, b, c)
+                    uniform float time;
+                    uniform float aspect;
+                    uniform vec3 baseColor;
+                    varying vec2 vUv;
+                    ${document.getElementById( 'noiseFS2' ).textContent}
+                    void main() {
+                        vec2 uv = (vUv - 0.5) * vec2(aspect, 1.);
+                        float n = noise(vec3(normalize(uv) * 6., time * 5.));
+                        float backCircle = length(uv * (1. - n * 0.25)) ;
+                        vec3 blueish = vec3(0.5, 0.5, 1) * 0.125;
+                        vec3 col = mix(baseColor * 0.5 + blueish, baseColor * 0.5, ss(0.5 + n * 0.1, 0.75 - n * 0.05, backCircle));
+                        gl_FragColor = vec4( col, 1.0 );
+                    }`
+            })
+        );
+        bScn.add(bQuad);
 
-    for (let i = 0; i < 50; i++) {
-        let particleStar = randomPointSphere(150); 
+        //애니메이션 
+        let clock = new THREE.Clock();
 
-        particleStar.velocity = THREE.MathUtils.randInt(50, 200);
-
-        particleStar.startX = particleStar.x;
-        particleStar.startY = particleStar.y;
-        particleStar.startZ = particleStar.z;
-
-        starsGeometry.vertices.push(particleStar);
-    }
-    let starsMaterial = new THREE.PointsMaterial({
-        size: 5,
-        color: "#ffffff",
-        transparent: true,
-        opacity: 0.8,
-        map: textureStar,
-        blending: THREE.AdditiveBlending,
-    });
-    starsMaterial.depthWrite = false;  
-    stars = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(stars);
-
-
-    /*    Fixed Stars   */
-    function createStars(texture, size, total) {
-        let pointGeometry = new THREE.Geometry();
-        let pointMaterial = new THREE.PointsMaterial({
-            size: size,
-            map: texture,
-            blending: THREE.AdditiveBlending,                      
+        renderer.setAnimationLoop(() => {
+            let t = clock.getElapsedTime();
+            controls.update();
+            globalUniforms.time.value = t * 0.1;
+            renderer.setRenderTarget(rt);
+            renderer.render(bScn, bCam);
+            renderer.setRenderTarget(null);
+            scene.background = null;
+            globalUniforms.bloom.value = 1;
+            bloomComposer.render();
+            scene.background = rt.texture;
+            globalUniforms.bloom.value = 0;
+            finalComposer.render();
+            renderer.render(scene, camera);
         });
 
-        for (let i = 0; i < total; i++) {
-            let radius = THREE.MathUtils.randInt(149, 70); 
-            let particles = randomPointSphere(radius);
-            pointGeometry.vertices.push(particles);
+        function createCubeMap() {
+            let images = [];
+
+            let c = document.createElement("canvas");
+            c.width = 4;
+            c.height = c.width;
+            let ctx = c.getContext("2d");
+            for (let i = 0; i < 6; i++) {
+                ctx.fillStyle = "#fff";
+                ctx.fillRect(0, 0, c.width, c.height);
+
+                for (let j = 0; j < (c.width * c.height) / 2; j++) {
+                    ctx.fillStyle = Math.random() < 0.5 ? "#a8a9ad" : "#646464";
+                    ctx.fillRect(
+                        Math.floor(Math.random() * c.width),
+                        Math.floor(Math.random() * c.height),
+                        2,
+                        1
+                    );
+                }
+                images.push(c.toDataURL());
+            }
+            return new THREE.CubeTextureLoader().load(images);
         }
-        return new THREE.Points(pointGeometry, pointMaterial);
-    }
-    scene.add(createStars(texture1, 15, 20));   
-    scene.add(createStars(texture2, 5, 5));
-    scene.add(createStars(texture4, 7, 5));
-
-
-    function randomPointSphere (radius) {
-        let theta = 2 * Math.PI * Math.random();
-        let phi = Math.acos(2 * Math.random() - 1);
-        let dx = 0 + (radius * Math.sin(phi) * Math.cos(theta));
-        let dy = 0 + (radius * Math.sin(phi) * Math.sin(theta));
-        let dz = 0 + (radius * Math.cos(phi));
-        return new THREE.Vector3(dx, dy, dz);
-    }
-}
-
-
-function animate() {
-
-    //Stars  Animation
-    stars.geometry.vertices.forEach(function (v) {
-        v.x += (0 - v.x) / v.velocity;
-        v.y += (0 - v.y) / v.velocity;
-        v.z += (0 - v.z) / v.velocity;
-
-        v.velocity -= 0.3;
-
-        if (v.x <= 5 && v.x >= -5 && v.z <= 5 && v.z >= -5) {
-            v.x = v.startX;
-            v.y = v.startY;
-            v.z = v.startZ;
-            v.velocity = THREE.MathUtils.randInt(50, 300);
-        }
-    });
-
-
-    //Nucleus Animation
-    nucleus.geometry.vertices.forEach(function (v) {
-        let time = Date.now();
-        v.normalize();
-        let distance = nucleus.geometry.parameters.radius + noise.noise3D(
-            v.x + time * 0.0005,
-            v.y + time * 0.0003,
-            v.z + time * 0.0008
-        ) * blobScale;
-        v.multiplyScalar(distance);
-    })
-    nucleus.geometry.verticesNeedUpdate = true;
-    nucleus.geometry.normalsNeedUpdate = true;
-    nucleus.geometry.computeVertexNormals();
-    nucleus.geometry.computeFaceNormals();
-    nucleus.rotation.y += 0.002;
-
-
-    //Sphere Beckground Animation
-    sphereBg.rotation.x += 0.002;
-    sphereBg.rotation.y += 0.002;
-    sphereBg.rotation.z += 0.002;
-
-    
-    controls.update();
-    stars.geometry.verticesNeedUpdate = true;
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-}
-
-
-
-/*     Resize     */
-window.addEventListener("resize", () => {
-    clearTimeout(timeout_Debounce);
-    timeout_Debounce = setTimeout(onWindowResize, 80);
-});
-function onWindowResize() {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-}
