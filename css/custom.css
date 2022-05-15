@@ -710,7 +710,6 @@ section h1 {
 
 }
 
-
 .modal .inside {
     opacity: 0;
     display: none;
@@ -850,90 +849,6 @@ section h1 {
         opacity: 1
     }
 }
-
-
-
-
-/*
-
-#section8 .bg {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url(../images/bg104.png) no-repeat center center/cover;
-}
-
-#section8 .bg-l {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 50%;
-    background-position: 0% center;
-    background-size: cover;
-    background: #000;
-    z-index: -1;
-}
-
-#section8 .bg-r {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    height: 100%;
-    width: 50%;
-    background: #000;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: 0% center;
-    background-size: cover;
-    z-index: -1;
-}
-*/
-
-/*
-#section8 .bg1 {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: url(../images/bg104.png) no-repeat center center/cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-*/
-
-/*
-
-#section8 .bg2 {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: url(../images/bg103.png) no-repeat center center/cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#section8 .bg3 {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: url(../images/bg105.jpg) no-repeat center center/cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-*/
-
 
 
 
