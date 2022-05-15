@@ -1,33 +1,25 @@
-   import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
-        import {
-            OrbitControls
-        } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
-        import {
-            EffectComposer
-        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/EffectComposer.js';
-        import {
-            RenderPass
-        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/RenderPass.js';
-        import {
-            ShaderPass
-        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/ShaderPass.js';
-        import {
-            UnrealBloomPass
-        } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/UnrealBloomPass.js';
+import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
+        import {OrbitControls} from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
+        import {EffectComposer} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/EffectComposer.js';
+        import {RenderPass} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/RenderPass.js';
+        import {ShaderPass} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/ShaderPass.js';
+        import {UnrealBloomPass} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 
         // 화면 
         let scene = new THREE.Scene();
 
         // 카메라
         let camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 1, 1000);
-        camera.position.set(0, 0, 10);
-
+        camera.position.set(0, 0, 15);
+        
         // 렌더링
         let renderer = new THREE.WebGLRenderer({
-            canvas: document.getElementById('canvas-dom')
+            canvas: document.getElementById('canvas-dom'),
+            alpha : true,
         });
         renderer.setSize(innerWidth, innerHeight);
         renderer.toneMapping = THREE.ReinhardToneMapping;
+        
 
         // 화면 사이즈
         window.addEventListener("resize", () => {
@@ -70,12 +62,8 @@
         // 객체 설정
         let g = new THREE.IcosahedronGeometry(1, 70);
         let localUniforms = {
-            color1: {
-                value: new THREE.Color(0xff3232)
-            },
-            color2: {
-                value: new THREE.Color(0x0032ff)
-            }
+            color1: {value: new THREE.Color(0xff3232)},
+            color2: {value: new THREE.Color(0x0032ff)}
         }
         let m = new THREE.MeshStandardMaterial({
             roughness: 0.125,
@@ -100,7 +88,7 @@
                     `.replace(
                         `#include <beginnormal_vertex>`,
                         `#include <beginnormal_vertex>
-      
+    
                     vec3 p0 = getPos(position);
         
                     float theta = .1; 
@@ -128,8 +116,8 @@
                     varying vec3 rPos;
                     ${shader.fragmentShader}
                 `.replace(
-                        `vec4 diffuseColor = vec4( diffuse, opacity );`,
-                        `vec3 col = mix(color1, color2, ss(2., 6., length(rPos)));
+                    `vec4 diffuseColor = vec4( diffuse, opacity );`,
+                    `vec3 col = mix(color1, color2, ss(2., 6., length(rPos)));
                     vec4 diffuseColor = vec4( col, opacity );
                     `)
                     .replace(
@@ -143,7 +131,7 @@
                         gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0), bloom);
                         gl_FragColor.rgb = mix(gl_FragColor.rgb, col * 2., grid);
                     `
-                    );
+                );
             }
         });
         let o = new THREE.Mesh(g, m);
@@ -195,41 +183,9 @@
         scene.background = rt.texture;
         let bCam = new THREE.Camera();
         let bScn = new THREE.Scene();
-        let bQuad = new THREE.Mesh(
-            new THREE.PlaneGeometry(2, 2),
-            new THREE.ShaderMaterial({
-                uniforms: {
-                    time: globalUniforms.time,
-                    aspect: globalUniforms.aspect,
-                    baseColor: {
-                        value: new THREE.Color(0x160832)
-                    }
-                },
-                vertexShader: `
-                    varying vec2 vUv;
-                    void main() {
-                    vUv = uv;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-                }`,
-                fragmentShader: `
-                    #define ss(a, b, c) smoothstep(a, b, c)
-                    uniform float time;
-                    uniform float aspect;
-                    uniform vec3 baseColor;
-                    varying vec2 vUv;
-                    ${document.getElementById( 'noiseFS2' ).textContent}
-                    void main() {
-                        vec2 uv = (vUv - 0.5) * vec2(aspect, 1.);
-                        float n = noise(vec3(normalize(uv) * 6., time * 5.));
-                        float backCircle = length(uv * (1. - n * 0.25)) ;
-                        vec3 blueish = vec3(0.5, 0.5, 1) * 0.125;
-                        vec3 col = mix(baseColor * 0.5 + blueish, baseColor * 0.5, ss(0.5 + n * 0.1, 0.75 - n * 0.05, backCircle));
-                        gl_FragColor = vec4( col, 1.0 );
-                    }`
-            })
-        );
+        let bQuad = new THREE.Mesh();
         bScn.add(bQuad);
-
+        
         //애니메이션 
         let clock = new THREE.Clock();
 
@@ -273,3 +229,26 @@
             }
             return new THREE.CubeTextureLoader().load(images);
         }
+        
+        function getThumbFile(_IMG){
+      //canvas에 이미지 객체를 리사이징해서 담는 과정
+      var canvas = document.createElement("canvas");
+      canvas.width = '100px'; //리사이징하여 그릴 가로 길이
+      canvas.height ='100px'; //리사이징하여 그릴 세로 길이
+      canvas.getContext("2d").drawImage(_IMG, 0, 0, width, height);
+
+      //canvas의 dataurl를 blob(file)화 하는 과정
+      var dataURL = canvas.toDataURL("image/png"); //png => jpg 등으로 변환 가능
+      var byteString = atob(dataURI.split(',')[1]);
+      var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      var ab = new ArrayBuffer(byteString.length);
+      var ia = new Uint8Array(ab);
+      for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+
+      //리사이징된 file 객체
+      var tmpThumbFile = new Blob([ab], {type: mimeString});
+
+      return tmpThumbFile;
+    }
