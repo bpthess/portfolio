@@ -315,6 +315,7 @@
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);"
                 data-27000="display:none;"
                 >JAVASCRIPT</h1>
+<!--
           <canvas id="canvas-dom" class="fixed" 
           data-21500="display:block; opacity:0.2; transform: translate(-50%, -51%) scale(0.96); z-index:10000;"
           data-22500="opacity:1; transform: translate(-50%, -50%) scale(1);"
@@ -323,6 +324,7 @@
           data-26000="display:none;"
           
           ></canvas>
+-->
         </section>
         <!-- section_8 end -->
         <!-- section_9 str -->
@@ -335,8 +337,8 @@
                 <div class="content" 
                     data-24500="transform: scale(0.81); opacity:0;"
                     data-25500="transform: scale(1); opacity:1;" 
-                    data-29000="transform: scale(1); opacity:1;"
-                    data-31000="transform: scale(0.7); opacity:0;"
+                    data-29500="transform: scale(1); opacity:1;"
+                    data-31500="transform: scale(0.7); opacity:0;"
                     >
                         <div class="bg-out"
                             data-25500="filter: blur(0vh);"
@@ -346,67 +348,88 @@
                     <div class="bg-in"
                        data-25500="transform: scale(0.71); filter: blur(1vh);"
                        data-26500="transform: scale(0.81); filter: blur(0vh);"
-                       data-28000="transform: scale(0.81); filter: blur(0vh);"
-                       data-29000="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                       data-31000="transform: scale(0.7); filter: blur(1.5vh); opacity:0;"
+                       data-28500="transform: scale(0.81); filter: blur(0vh);"
+                       data-29500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
+                       data-31500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;"
                        >
+                    <input id="modalToggle" class="hide" type="checkbox">
+                    <div class="modal">
+                        <label class="pop-btn btn-open" for="modalToggle"
+                        onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
+                        >Touch me!</label>
+
+                        <div class="inside">
+                            <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
+                            <iframe src="../project/create_music.html" frameborder="0"></iframe>
+                            <p>javascript를 이용해 버튼을 누르면 음악이 재생되는<br>
+                                뮤직 플레이어 컨텐츠입니다.</p>
+                        </div>
+                    </div>
                         <div class="item"
                            data-26000="transform: translateY(-50%) scale(0.81); opacity:0;"
                            data-27000="transform: translateY(-50%) scale(1); opacity:1;"
                            >
                             <h2>MUSIC<br>PLAYER</h2>
                         </div>
+<!--
                     <div class="touch" 
-                    onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
-                    data-26500="opacity:0; transform: translateY(-50%) scale(0);"
-                    data-27000="opacity:1; transform: translateY(-50%) scale(1);"
                     ><a href="#none">Touch me!</a></div>
+-->
                     </div>
                 </div>
 
+<!--
                  <div class="layer-pop1">
                      <button class="x-btn"><i class="xi-close-thin"></i></button>
                  </div>
+-->
             </div>
         </section>
         <!-- section_9 end -->
         <!-- section_10 str -->
         <section id="section10"
-           data-28999="opacity:0; visibility: hidden;" 
-           data-29000="opacity:1; visibility: visible;" 
+           data-30499="opacity:0; visibility: hidden;" 
+           data-30500="opacity:1; visibility: visible;" 
            >
             <div class="inner">
                 <div class="content" 
-                    data-30000="left[swing]:100%; transform: scale(0.81); opacity:0;" 
-                    data-31000="left[swing]:0%; transform: scale(1); opacity:1;" 
-                    data-34000="left[swing]:0%; transform: scale(1); opacity:1;" 
-                    data-36000="left[swing]:0%; transform: scale(0.7); opacity:0;"
+                    data-30500="left[swing]:100%; transform: scale(0.81); opacity:0;" 
+                    data-31500="left[swing]:0%; transform: scale(1); opacity:1;" 
+                    data-35500="left[swing]:0%; transform: scale(1); opacity:1;" 
+                    data-37500="left[swing]:0%; transform: scale(0.7); opacity:0;"
                     >
                         <div class="bg-out"
-                            data-30000="filter: blur(0vh);"
-                            data-31000="filter: blur(0vh);"
-                            data-32000="filter: blur(1.5vh);"
+                            data-30500="filter: blur(0vh);"
+                            data-31500="filter: blur(0vh);"
+                            data-32500="filter: blur(1.5vh);"
                         >
                         </div>
                     <div class="bg-in" 
-                       data-30000="transform: scale(0.71); filter: blur(1vh);"
-                       data-31000="transform: scale(0.71); filter: blur(1vh);"
-                       data-32000="transform: scale(0.81); filter: blur(0vh);"
-                       data-33000="transform: scale(0.81); filter: blur(0vh);"
-                       data-34000="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                       data-36000="transform: scale(0.7); filter: blur(1.5vh); opacity:0;"
+                       data-30500="transform: scale(0.71); filter: blur(1vh);"
+                       data-31500="transform: scale(0.71); filter: blur(1vh);"
+                       data-32500="transform: scale(0.81); filter: blur(0vh);"
+                       data-34500="transform: scale(0.81); filter: blur(0vh);"
+                       data-35500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
+                       data-37500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;"
                        >
+                    <input id="modalToggle" class="hide" type="checkbox">
+                    <div class="modal">
+                        <label class="pop-btn btn-open" for="modalToggle"
+                        onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
+                        data-31500="top:35%; left:49%;"
+                        >Touch me!</label>
+                        <div class="inside">
+                            <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
+                            <iframe src="../project/create_music.html" frameborder="0"></iframe>
+                            <p>Javascript를 이용해 테트리스 게임 컨텐츠입니다.</p>
+                        </div>
+                    </div>
                         <div class="item"
-                           data-31500="transform: translateY(-50%) scale(0.81); opacity:0;"
-                           data-32500="transform: translateY(-50%) scale(1); opacity:1;"
+                           data-32000="transform: translateY(-50%) scale(0.81); opacity:0;"
+                           data-33000="transform: translateY(-50%) scale(1); opacity:1;"
                            >
                             <h2>TETRIS<br>GAME</h2>
                         </div>
-                    <div class="touch" 
-                    onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
-                    data-32000="opacity:0; top: 35%; left:43.5%; transform: translateY(-50%) scale(0);"
-                    data-32500="opacity:1; top: 35%; left:43.5%; transform: translateY(-50%) scale(1);"
-                    ><a href="#none">Touch me!</a></div>
                     </div>
                 </div>
             </div>
@@ -414,48 +437,55 @@
         <!-- section_10 end -->
         <!-- section_11 str -->
          <section id="section11"
-           data-33499="opacity:0; visibility: hidden;" 
-           data-33500="opacity:1; visibility: visible;" 
+           data-36499="opacity:0; visibility: hidden;" 
+           data-36500="opacity:1; visibility: visible;" 
            >
             <div class="inner">
                 <div class="content" 
-                    data-34500="left[swing]:100%; transform: scale(0.81); opacity:0;" 
-                    data-35500="left[swing]:0%; transform: scale(1); opacity:1;" 
-                    data-38500="left[swing]:0%; transform: scale(1); opacity:1;" 
-                    data-40500="left[swing]:0%; transform: scale(0.7); opacity:0;"
+                    data-36500="left[swing]:100%; transform: scale(0.81); opacity:0;" 
+                    data-37500="left[swing]:0%; transform: scale(1); opacity:1;" 
+                    data-41000="left[swing]:0%; transform: scale(1); opacity:1;" 
+                    data-43000="left[swing]:0%; transform: scale(0.7); opacity:0;"
                     >
                         <div class="bg-out"
-                            data-34500="filter: blur(0vh);"
-                            data-35500="filter: blur(0vh);"
-                            data-36500="filter: blur(1.5vh);"
+                            data-36500="filter: blur(0vh);"
+                            data-37500="filter: blur(0vh);"
+                            data-38500="filter: blur(1.5vh);"
                         >
                         </div>
                     <div class="bg-in" 
-                       data-34500="transform: scale(0.71); filter: blur(1vh);"
-                       data-35500="transform: scale(0.71); filter: blur(1vh);"
-                       data-36500="transform: scale(0.81); filter: blur(0vh);"
-                       data-37500="transform: scale(0.81); filter: blur(0vh);"
-                       data-38500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                       data-40500="transform: scale(0.91); filter: blur(1.5vh); opacity:0;"
+                       data-36500="transform: scale(0.71); filter: blur(1vh);"
+                       data-37500="transform: scale(0.71); filter: blur(1vh);"
+                       data-38500="transform: scale(0.81); filter: blur(0vh);"
+                       data-40000="transform: scale(0.81); filter: blur(0vh);"
+                       data-41000="transform: scale(0.91); filter: blur(0vh); opacity:1;"
+                       data-43000="transform: scale(0.91); filter: blur(1.5vh); opacity:0;"
                        >
+                    <input id="modalToggle" class="hide" type="checkbox">
+                    <div class="modal">
+                        <label class="pop-btn btn-open" for="modalToggle"
+                        onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
+                        >Touch me!</label>
+
+                        <div class="inside">
+                            <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
+                            <iframe src="../project/create_music.html" frameborder="0"></iframe>
+                            <p>Javascript와 Weather API를 이용하여 실시간으로 날씨를<br> 알 수 있는 날씨 앱 컨텐츠입니다.</p>
+                        </div>
+                    </div>
                         <div class="item"
-                           data-36000="transform: translateY(-50%) scale(0.81); opacity:0;"
-                           data-37000="transform: translateY(-50%) scale(1); opacity:1;"
+                           data-38000="transform: translateY(-50%) scale(0.81); opacity:0;"
+                           data-39000="transform: translateY(-50%) scale(1); opacity:1;"
                            >
                             <h2>WEATHER<br>APP</h2>
                         </div>
-                    <div class="touch" 
-                    onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)"
-                    data-36500="opacity:0; top: 20%; transform: translateY(-50%) scale(0);"
-                    data-37000="opacity:1; top: 20%; transform: translateY(-50%) scale(1);"
-                    ><a href="#none">Touch me!</a></div>
                     </div>
                 </div>
             </div>
         </section>  
         <div class="mouse-area" 
-           data-25499="display: none;" 
-           data-25500="display: block;"
+           data-26999="display: none;" 
+           data-27000="display: block;"
            >
             <div class="mouse"></div>
             <div class="mouse-mid"></div>
