@@ -276,17 +276,23 @@
         <!-- section_8 str -->
         <section id="section8" data-21300="opacity:0; visibility: hidden;" data-21500="opacity:1; visibility: visible;"
             data-24500="opacity:1; transform: scale(1);">
-            <h1 data-21500="display:block; left[swing]: 45%; transform: translate(-50%, -50%) scale(1); opacity:0;"
+            <h1 data-22500="display:block; left[swing]: 45%; transform: translate(-50%, -50%) scale(1); opacity:0;"
                 data-23000="display:block; left[swing]: 50%; transform: translate(-50%, -50%) scale(1); opacity:1;"
                 data-24500="opacity:1; transform: translate(-50%, -50%) scale(1);"
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);" data-27000="display:none;">
                 JAVASCRIPT</h1>
+<!--
             <canvas id="canvas-dom" class="fixed"
-                data-21500="display:block; opacity:0.2; transform: translate(-50%, -51%) scale(0.96); z-index:10000;"
-                data-22500="opacity:1; transform: translate(-50%, -50%) scale(1);"
-                data-24500="opacity:1; transform: translate(-50%, -50%) scale(1);"
-                data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);"
+                data-21500="display:block; opacity:0; translate(-50%, -51%); z-index:10000;"
+                data-22500="opacity:1; transform: translate(-50%, -50%);"
+                data-25600="opacity:1; transform: translate(-50%, -50%);"
                 data-26000="display:none;"></canvas>
+-->
+            <div class="reverse bfw" 
+            data-21500="width: 0vw; height: 0vw; opacity:0.1;" 
+            data-22500="width: 200vw; height: 200vw; opacity:0;"
+            >
+            </div>
         </section>
         <!-- section_8 end -->
         <!-- section_9 str -->
@@ -294,21 +300,28 @@
             <section id="section9" data-24499="opacity:0; visibility: hidden;"
                 data-24500="opacity:1; visibility: visible;">
                 <div class="inner">
-                    <div class="content" data-24500="transform: scale(0.81); opacity:0;"
-                        data-25500="transform: scale(1); opacity:1;" data-29500="transform: scale(1); opacity:1;"
-                        data-31500="transform: scale(0.7); opacity:0;">
-                        <div class="bg-out" data-25500="filter: blur(0vh);" data-26500="filter: blur(1.5vh);">
+                    <div class="content" 
+                        data-24500="transform: scale(0.81); opacity:0;"
+                        data-25500="transform: scale(1); opacity:1;" 
+                        data-29500="transform: scale(1); opacity:1;"
+                        data-31500="transform: scale(0.91); opacity:0;"
+                        >
+                        <div class="bg-out" 
+                        data-25500="filter: blur(0vh);" 
+                        data-26500="filter: blur(1.5vh);"
+                        >
                         </div>
-                        <div class="bg-in" data-25500="transform: scale(0.71); filter: blur(1vh);"
-                            data-26500="transform: scale(0.81); filter: blur(0vh);"
-                            data-28500="transform: scale(0.81); filter: blur(0vh);"
-                            data-29500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                            data-31500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;">
+                        <div class="bg-in" 
+                            data-25500="transform: scale(0.71);"
+                            data-26500="transform: scale(0.81);"
+                            data-28500="transform: scale(0.81);"
+                            data-29500="transform: scale(1); opaicty:1;"
+                            data-31500="transform: scale(1); opaicty:0;"
+                            >
                             <input id="modalToggle1" class="hide" type="checkbox">
                             <div class="modal">
                                 <label class="pop-btn btn-open" for="modalToggle1" onmouseover="_onrollOver(true)"
                                     onmouseout="_onrollOver(false)" onclick="toggleNav()">Touch me!</label>
-
                                 <div class="inside">
                                     <label class="btn-close" for="modalToggle1"><i class="xi-close-thin"></i></label>
                                     <iframe src="https://bpthess.github.io/javascript/create_music"
@@ -333,16 +346,18 @@
                     <div class="content" data-30500="left[swing]:100%; transform: scale(0.81); opacity:0;"
                         data-31500="left[swing]:0%; transform: scale(1); opacity:1;"
                         data-35500="left[swing]:0%; transform: scale(1); opacity:1;"
-                        data-37500="left[swing]:0%; transform: scale(0.7); opacity:0;">
-                        <div class="bg-out" data-30500="filter: blur(0vh);" data-31500="filter: blur(0vh);"
-                            data-32500="filter: blur(1.5vh);">
+                        data-37500="left[swing]:0%; transform: scale(0.91); opacity:0;">
+                        <div class="bg-out" 
+                           data-31500="filter: blur(0vh);"
+                           data-32500="filter: blur(1.5vh);"
+                           >
                         </div>
-                        <div class="bg-in" data-30500="transform: scale(0.71); filter: blur(1vh);"
-                            data-31500="transform: scale(0.71); filter: blur(1vh);"
-                            data-32500="transform: scale(0.81); filter: blur(0vh);"
-                            data-34500="transform: scale(0.81); filter: blur(0vh);"
-                            data-35500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                            data-37500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;">
+                        <div class="bg-in" 
+                            data-31500="transform: scale(0.71);"
+                            data-32500="transform: scale(0.81);"
+                            data-34500="transform: scale(0.81);"
+                            data-35500="transform: scale(1);"
+                            data-37500="transform: scale(1);">
                             <input id="modalToggle2" class="hide" type="checkbox">
                             <div class="modal">
                                 <label class="pop-btn btn-open" for="modalToggle2" onmouseover="_onrollOver(true)"
@@ -364,27 +379,34 @@
             </section>
             <!-- section_10 end -->
             <!-- section_11 str -->
-            <section id="section11" data-36499="opacity:0; visibility: hidden;"
-                data-36500="opacity:1; visibility: visible;">
+            <section id="section11" 
+                data-36499="opacity:0; visibility: hidden;"
+                data-36500="opacity:1; visibility: visible;"
+                >
                 <div class="inner">
-                    <div class="content" data-36500="left[swing]:100%; transform: scale(0.81); opacity:0;"
+                    <div class="content" 
+                        data-36500="left[swing]:100%; transform: scale(0.81); opacity:0;"
                         data-37500="left[swing]:0%; transform: scale(1); opacity:1;"
                         data-41000="left[swing]:0%; transform: scale(1); opacity:1;"
-                        data-43000="left[swing]:0%; transform: scale(0.7); opacity:0;">
-                        <div class="bg-out" data-36500="filter: blur(0vh);" data-37500="filter: blur(0vh);"
-                            data-38500="filter: blur(1.5vh);">
+                        data-43000="left[swing]:0%; transform: scale(0.91); opacity:0;"
+                        >
+                        <div class="bg-out" 
+                            data-36500="filter: blur(0vh);" 
+                            data-37500="filter: blur(0vh);"
+                            data-38500="filter: blur(1.5vh);"
+                            >
                         </div>
-                        <div class="bg-in" data-36500="transform: scale(0.71); filter: blur(1vh);"
-                            data-37500="transform: scale(0.71); filter: blur(1vh);"
-                            data-38500="transform: scale(0.81); filter: blur(0vh);"
-                            data-40000="transform: scale(0.81); filter: blur(0vh);"
-                            data-41000="transform: scale(0.91); filter: blur(0vh); opacity:1;"
-                            data-43000="transform: scale(0.91); filter: blur(1.5vh); opacity:0;">
+                        <div class="bg-in" 
+                            data-37500="transform: scale(0.71);"
+                            data-38500="transform: scale(0.81);"
+                            data-40000="transform: scale(0.81);"
+                            data-41000="transform: scale(1);"
+                            data-43000="transform: scale(1);"
+                            >
                             <input id="modalToggle3" class="hide" type="checkbox">
                             <div class="modal">
                                 <label class="pop-btn btn-open" for="modalToggle3" onmouseover="_onrollOver(true)"
                                     onmouseout="_onrollOver(false)">Touch me!</label>
-
                                 <div class="inside">
                                     <label class="btn-close" for="modalToggle3"><i class="xi-close-thin"></i></label>
                                     <iframe src="https://bpthess.github.io/javascript/weather" frameborder="0"></iframe>

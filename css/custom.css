@@ -515,6 +515,24 @@ section h1 {
 }
 
 
+.fake {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vw;
+    background: #000;
+    filter: opacity(0.5);
+    border-radius: 100%;
+}
+
+.flt {
+    filter: opacity(0.5);
+}
+
+.co2 {
+    background: #fff;
+}
 
 #section8 {
     width: 100%;
@@ -563,6 +581,11 @@ section h1 {
     height: 10vw;
     border-radius: 50%;
     z-index: 10000;
+}
+
+.bfw {
+    background-color: #fff;
+    filter: opacity(0.8);
 }
 
 .content {
@@ -701,7 +724,7 @@ section h1 {
 
 /*********************/
 .hide {
-    display:none;
+    display: none;
 }
 
 .modal {
@@ -743,7 +766,6 @@ section h1 {
 .modal .inside p {
     font-size: 22px;
     font-family: 'GongGothicLight';
-    font-weight: bold;
     padding: 0 2em;
     color: #fff;
     z-index: 20000;
