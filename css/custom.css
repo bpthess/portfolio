@@ -615,6 +615,10 @@ section h1 {
     text-shadow: 0 0.375vh 0.75vh rgba(0, 0, 0, 0.1);
 }
 
+#section11 .bg-in .item h2 {
+    letter-spacing: 0;
+}
+
 
 #section9 .content .bg-out,
 #section9 .content .bg-in {
@@ -696,6 +700,10 @@ section h1 {
 
 
 /*********************/
+.hide {
+    display:none;
+}
+
 .modal {
     position: fixed;
     display: block;
@@ -707,7 +715,6 @@ section h1 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
 }
 
 .modal .inside {
@@ -790,6 +797,10 @@ section h1 {
     background: #000;
 }
 
+.lock {
+    overflow: hidden;
+}
+
 /*
 #modalToggle:checked ~ .item h2 {
     text-shadow: 0 0.375vh 0.75vh rgba(255, 255, 255, 0.1);
@@ -798,12 +809,11 @@ section h1 {
 }
 */
 
-
-#modalToggle:checked ~ .modal .btn-open {
+input[type="checkbox"]:checked ~ .modal .btn-open {
     animation-name: btnExpand;
 }
 
-#modalToggle:checked ~ .modal .inside {
+input[type="checkbox"]:checked ~ .modal .inside {
     display: flex;
     justify-content: flex-end;
     align-items: center;

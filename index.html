@@ -15,7 +15,6 @@
     <!--  common CSS  -->
     <link rel="stylesheet" href="css/reset.css">
     <!-- Custom CSS & JS -->
-    <!--    <link rel="stylesheet" href="css/text.css">-->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -282,12 +281,14 @@
                 data-24500="opacity:1; transform: translate(-50%, -50%) scale(1);"
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);" data-27000="display:none;">
                 JAVASCRIPT</h1>
+<!--
             <canvas id="canvas-dom" class="fixed"
                 data-21500="display:block; opacity:0.2; transform: translate(-50%, -51%) scale(0.96); z-index:10000;"
                 data-22500="opacity:1; transform: translate(-50%, -50%) scale(1);"
                 data-24500="opacity:1; transform: translate(-50%, -50%) scale(1);"
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);"
                 data-26000="display:none;"></canvas>
+-->
         </section>
         <!-- section_8 end -->
         <!-- section_9 str -->
@@ -305,13 +306,13 @@
                             data-28500="transform: scale(0.81); filter: blur(0vh);"
                             data-29500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
                             data-31500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;">
-                            <input id="modalToggle" class="hide" type="checkbox">
+                            <input id="modalToggle1" class="hide" type="checkbox">
                             <div class="modal">
-                                <label class="pop-btn btn-open" for="modalToggle" onmouseover="_onrollOver(true)"
-                                    onmouseout="_onrollOver(false)">Touch me!</label>
+                                <label class="pop-btn btn-open" for="modalToggle1" onmouseover="_onrollOver(true)"
+                                    onmouseout="_onrollOver(false)" onclick="toggleNav()">Touch me!</label>
 
                                 <div class="inside">
-                                    <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
+                                    <label class="btn-close" for="modalToggle1"><i class="xi-close-thin"></i></label>
                                     <iframe src="https://bpthess.github.io/javascript/create_music"
                                         frameborder="0"></iframe>
                                     <p>javascript를 이용해 버튼을 누르면 음악이 재생되는<br>
@@ -344,13 +345,14 @@
                             data-34500="transform: scale(0.81); filter: blur(0vh);"
                             data-35500="transform: scale(0.91); filter: blur(0vh); opacity:1;"
                             data-37500="transform: scale(0.7); filter: blur(1.5vh); opacity:0;">
-                            <input id="modalToggle" class="hide" type="checkbox">
+                            <input id="modalToggle2" class="hide" type="checkbox">
                             <div class="modal">
-                                <label class="pop-btn btn-open" for="modalToggle" onmouseover="_onrollOver(true)"
+                                <label class="pop-btn btn-open" for="modalToggle2" onmouseover="_onrollOver(true)"
                                     onmouseout="_onrollOver(false)" data-31500="top:35%; left:49%;">Touch me!</label>
                                 <div class="inside">
-                                    <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
-                                    <iframe src="https://bpthess.github.io/javascript/create_music" frameborder="0"></iframe>
+                                    <label class="btn-close" for="modalToggle2"><i class="xi-close-thin"></i></label>
+                                    <iframe src="https://bpthess.github.io/javascript/tetris_game"
+                                        frameborder="0"></iframe>
                                     <p>Javascript를 이용해 테트리스 게임 컨텐츠입니다.</p>
                                 </div>
                             </div>
@@ -380,15 +382,15 @@
                             data-40000="transform: scale(0.81); filter: blur(0vh);"
                             data-41000="transform: scale(0.91); filter: blur(0vh); opacity:1;"
                             data-43000="transform: scale(0.91); filter: blur(1.5vh); opacity:0;">
-                            <input id="modalToggle" class="hide" type="checkbox">
+                            <input id="modalToggle3" class="hide" type="checkbox">
                             <div class="modal">
-                                <label class="pop-btn btn-open" for="modalToggle" onmouseover="_onrollOver(true)"
+                                <label class="pop-btn btn-open" for="modalToggle3" onmouseover="_onrollOver(true)"
                                     onmouseout="_onrollOver(false)">Touch me!</label>
 
                                 <div class="inside">
-                                    <label class="btn-close" for="modalToggle"><i class="xi-close-thin"></i></label>
-                                    <iframe src="../project/create_music.html" frameborder="0"></iframe>
-                                    <p>Javascript와 Weather API를 이용하여 실시간으로 날씨를<br> 알 수 있는 날씨 앱 컨텐츠입니다.</p>
+                                    <label class="btn-close" for="modalToggle3"><i class="xi-close-thin"></i></label>
+                                    <iframe src="https://bpthess.github.io/javascript/weather" frameborder="0"></iframe>
+                                    <p>Javascript와 Weather API를 이용하여 실시간으로<br>날씨를 알 수 있는 날씨 앱 컨텐츠입니다.</p>
                                 </div>
                             </div>
                             <div class="item" data-38000="transform: translateY(-50%) scale(0.81); opacity:0;"
@@ -615,9 +617,19 @@
             $('.x-btn').click(function () {
                 $('.layer-pop1').toggle();
             })
+            
+        
 
 
+//            function toggleNav() {
+//            $('input[type="checkbox"]').checkOn(function (e) {
+//               $("html, body").css({"overflow":"hidden", "height":"100%"});
+//        })
+//            }
+//            e.preventDefault()
+            
         })
+        
     </script>
 
 
