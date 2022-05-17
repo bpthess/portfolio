@@ -22,7 +22,9 @@
 
 
 
-body {}
+body {
+    height: 900px;
+}
 
 
 /* Reset CSS */
@@ -583,6 +585,15 @@ section h1 {
     z-index: 10000;
 }
 
+#canvas-dom2 {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+}
+
 .bfw {
     background-color: #fff;
     filter: opacity(0.8);
@@ -879,6 +890,257 @@ input[type="checkbox"]:checked ~ .modal .inside {
 
     to {
         opacity: 1
+    }
+}
+
+
+iframe {
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: block;
+}
+
+
+
+/*######################## animation ###############################3*/
+
+#section12 .inner {
+    width: 100%;
+}
+
+
+#section12 .circle-1 {
+    width: 13vw;
+    height: 13vw;
+    border: 11vw solid darkorange;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#section12 .circle-2 {
+    width: 13vw;
+    height: 13vw;
+    border: 11vw solid #111;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#section13 .circle-1 {
+    width: 13vw;
+    height: 13vw;
+    border: 11vw solid darkcyan;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#section13 .circle-2 {
+    width: 13vw;
+    height: 13vw;
+    border: 11vw solid #111;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#section12 .sky,
+#section13 .sky {
+    display: flex;
+    width: 100%;
+    height: 55vh;
+    /*	background-image: linear-gradient(to bottom, powderblue,pink, white 80%);*/
+    background: #000;
+    position: relative;
+}
+
+#canvas-dom3 {
+    height: 100vh;
+    width: 100%;
+}
+
+/*
+.sun {
+	width: 30vw;
+	height: 30vw;
+	position: absolute;
+	bottom: -8vh;
+	left: 35vw;
+	border-radius: 50%;
+	background-image: linear-gradient( -178deg, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.4) 50%,  rgba(255,255,255,1) 72%),  linear-gradient(-190deg, tomato -10%, lightcoral, navajowhite 70%);
+	filter: blur(1px);
+}
+*/
+
+.inner .sea {
+    /* png to add noise */
+    background: #000;
+    width: 100%;
+    height: 45vh;
+    position: relative;
+    /* 	filter: blur(1px); */
+    perspective: 80px;
+    /*    overflow-x: hidden;*/
+    z-index: 100000;
+}
+
+#section12 .inner .waves {
+    height: 200%;
+    width: 200%;
+    transform: rotateX(20deg);
+    position: absolute;
+    top: -39vh;
+    left: -50vw;
+    /* svg to create waves */
+/*    background-image: url('data:image/svg+xml,%3Csvg width="36" height="9" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z" fill="white" fill-opacity="0.6" fill-rule="evenodd"/%3E%3C/svg%3E')*/
+        /*
+          background: linear-gradient(to top, rgba(0,25,45,1) 0%,rgba(14,71,117,1) 35%, rgba(26,126,174,1) 70%, rgba(62,168,220,1) 100%);
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+*/
+}
+
+#section13 .inner .waves {
+    height: 200%;
+    width: 200%;
+    transform: rotateX(20deg);
+    position: absolute;
+    top: -39vh;
+    left: -50vw;
+    /* svg to create waves */
+}
+
+.inner .waves:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: repeating-linear-gradient(175deg, rgba(165, 165, 165, 0.08) 45%, rgba(175, 175, 175, 0.08) 47%, rgba(235, 235, 235, 0.08) 50%, rgba(195, 195, 195, 0.08) 54%, rgba(165, 165, 165, 0.08) 57%), linear-gradient(to left top, rgba(0, 0, 0, 0.0) 10%, rgba(0, 0, 0, 0.20) 44%, rgba(0, 0, 0, 0.65) 95%, rgba(0, 0, 0, 0.62) 100%);
+    opacity: 0.5;
+    box-shadow: 0 6px 6px -6px #ffc107 inset;
+    animation: ocean 15s infinite;
+}
+
+@keyframes ocean {
+    0% {
+        background-size: 100%;
+    }
+
+    50% {
+        background-size: 200%;
+    }
+
+    100% {
+        background-size: 100%;
+    }
+}
+
+.inner .reflection {
+    width: 36vw;
+    height: 16vh;
+    background-image: linear-gradient(to bottom, white 20%, navajowhite);
+    margin: auto;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(18px);
+    position: absolute;
+    left: 32vw;
+    top: -3vh;
+}
+
+#section12 .modal,
+#section13 .modal {
+    z-index: 500000;
+}
+
+.inner .modal label a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.modal label a:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 5px);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    border-top: 20px solid transparent;
+    border-right: 20px solid #fff;
+
+}
+
+#section12 {
+    z-index: 600000
+}
+
+#section13 {
+    z-index: 700000
+}
+
+.ani-cir {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 500000;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    /*        animation: ani1 1s ease;*/
+}
+
+@keyframes ani1 {
+    0% {
+        top: 70%;
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        top: 50%;
+        width: 35px;
+        height: 75px;
+        border-radius: 30px;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
     }
 }
 
