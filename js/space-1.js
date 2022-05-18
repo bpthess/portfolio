@@ -15,18 +15,18 @@ class THREEScene {
     setup() {
         this.group = new THREE.Group();
         this.textureLoader = new THREE.TextureLoader();
-        this.clock = new THREE.Clock();
         this.scene = new THREE.Scene();
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             canvas: document.getElementById('canvas-dom2'),
+            alpha : true,
         });
         this.renderer.setSize(this.viewport.width, this.viewport.height);
         this.renderer.setPixelRatio = window.devicePixelRatio;
-        this.renderer.setClearColor(0x151617);
-        this.container.appendChild(this.renderer.domElement);
+        //this.container.appendChild(this.renderer.domElement);
+        
     }
-
+    
     camera() {
         const fov = 75;
         const near = 0.1;
