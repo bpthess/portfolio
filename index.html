@@ -504,18 +504,27 @@
                data-47000="opacity:1;"
                >
                </div>
+<!--               <canvas id="canvas-dom3"></canvas>-->
                 <div id="top"
-                   data-47000="top[swing]:60%; transform: translate(-50%, -50%); opacity:0;"
-                   data-48000="top[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
+                   data-47000="top[swing]:60%; transform: translateY(-50%); opacity:0;"
+                   data-48000="top[swing]:50%; transform: translateY(-50%); opacity:1;"
                    >
                     <div class="perspective">
                         <div class="card">
-                            <div class="thumb" style="background-image: url(https://images.unsplash.com/photo-1478358161113-b0e11994a36b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a11da19e81415e5a81029aade9df7774&auto=format&fit=crop&w=668&q=80)"></div>
-                            <h2>Virtual Reality</h2>
-                            <span>Dreaming with your eyes open!</span>
+                            <div class="thumb" style="background: url(/static/images/bg25345.png) no-repeat center bottom">
+                            </div>
+                            <h2
+                            data-47000="left[swing]:-100px;"
+                            data-48000="left[swing]:-60px;"
+                            >Red Moonlight</h2>
+                            <span
+                            data-47000="right[swing]:-310px;"
+                            data-48000="right[swing]:-280px;"
+                            >Animation blink keyframe!</span>
                         </div>
                     </div>
                 </div>
+
             </section>
         <!-- section_12 end -->
         <!-- section_13 str -->
@@ -544,6 +553,7 @@
 <!--  Custom JS  -->
     <script type="module" src="js/space.js"></script>
     <script type="module" src="js/space-1.js"></script>
+    <script type="module" src="js/fireflies.js"></script>
     <script src="js/custom.js"></script>
     
 <!-- Expansion  -->
@@ -571,14 +581,24 @@
         $(this).parent('.bg-in').toggleClass("active");
         });
             
-        //마우스 이펙트
-        var o = $(".card");
-        $("#top").on("mousemove", function (t) {
-        var e = -($(window).innerWidth() / 2 - t.pageX) / 30,
-        n = ($(window).innerHeight() / 2 - t.pageY) / 10;
-        o.attr("style", "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)")
-        })
+        //마우스 이펙트_v1
+//        var o = $(".card");
+//        $("#top").on("mousemove", function (t) {
+//        var e = -($(window).innerWidth() / 2 - t.pageX) / 30,
+//        n = ($(window).innerHeight() / 2 - t.pageY) / 10;
+//        o.attr("style", "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)")
+//        })
            
+        //마우스 이펙트_v2
+        window.onmousemove = (e)=> {
+        let winPercent = { x:e.clientX/window.innerWidth, y:e.clientY/window.innerHeight },
+        distFromCenter = 1 - Math.abs((e.clientX - window.innerWidth/2)/window.innerWidth*2);
+
+
+        gsap.timeline({defaults:{duration:0.5, overwrite:'auto'}})
+        .to('.card', {rotation:-7+9*winPercent.x}, 0)
+        }
+
         })
         </script>
         

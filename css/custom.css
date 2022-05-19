@@ -921,6 +921,15 @@ iframe {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
+}
+
+#canvas-dom3 {
+    filter: blur(1px);
+    z-index: 999999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -946,23 +955,21 @@ iframe {
 
 .perspective {
     width: 100%;
-    height: 100%;
-    display: flex;
     perspective: 1000px;
 }
 
 #top {
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .card {
-    width: 270px;
-    height: 413px;
+    width: 300px;
+    height: 453px;
     margin: auto;
     box-shadow: 0 70px 63px -60px #494848;
     transform-style: preserve-3d;
@@ -997,16 +1004,18 @@ iframe {
     font-weight: 100;
     transform: translateZ(80px);
     color: #fff;
+    width: 50px;
 }
 
 .card span {
     position: absolute;
     bottom: 40px;
-    right: -280px;
+    right: -310px;
     font-size: 37px;
     font-weight: 600;
     transform: translateZ(35px);
     color: #fff;
+    width: 500px;
 }
 
 
