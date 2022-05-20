@@ -27,8 +27,8 @@ class firefly {
 let f = [];
 
 function draw() {
-    if (f.length < 100) {
-        for (let j = 0; j < 10; j++) {
+    if (f.length < 105) {
+        for (let j = 0; j < 1; j++) {
             f.push(new firefly());
         }
     }

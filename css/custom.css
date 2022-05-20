@@ -598,7 +598,9 @@ section h1 {
     filter: opacity(0.8);
 }
 
-.content {
+#section9 .content,
+#section10 .content,
+#section11 .content {
     position: absolute;
     left: 0;
     top: 0;
@@ -625,6 +627,7 @@ section h1 {
     transform: translate(-50%, -50%);
     background-size: auto 133.3333%;
     transition: width 0.2s, height 0.2s ease, transform cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity step-end;
+    border-radius: 3px;
 }
 
 .bg-in .item {
@@ -920,8 +923,8 @@ iframe {
 }
 
 
-#canvas3{
-  filter: blur(1px);
+#canvas3 {
+    filter: blur(1px);
     display: block;
 }
 
@@ -966,6 +969,7 @@ iframe {
     box-shadow: 0 70px 63px -60px #494848;
     transform-style: preserve-3d;
     transition: transform 0.05s linear;
+    border-radius: 15px;
 }
 
 .card .thumb {
@@ -986,6 +990,8 @@ iframe {
     height: 108%;
     z-index: -1;
     filter: blur(55px);
+    pointer-events: none ! !important;
+    user-select: none !important;
 }
 
 .card h2 {
@@ -997,6 +1003,7 @@ iframe {
     transform: translateZ(80px);
     color: #fff;
     width: 50px;
+    user-select: none;
 }
 
 .card span {
@@ -1008,6 +1015,44 @@ iframe {
     transform: translateZ(35px);
     color: #fff;
     width: 500px;
+    user-select: none;
+}
+
+.card:hover,
+.card .thumb:hover {
+    overflow: hidden;
+}
+
+.card:hover .card-content {
+    top: 0;
+    opacity: 1;
+    height: inherit;
+    padding-top: 150px;
+    visibility: visible;
+}
+
+.card:hover .thumb + h2,
+.card:hover .thumb + h2 + span {
+    display: none;
+}
+
+.card-content {
+    position: absolute;
+    width: inherit;
+    top: 55%;
+    left: 0;
+    padding: 20px;
+    text-align: center;
+    transition: .5s;
+    z-index: 5000;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card-content p {
+    color: #fff;
 }
 
 

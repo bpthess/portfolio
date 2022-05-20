@@ -365,7 +365,7 @@
                             data-24500="transform: translate(-50%, -50%) scale(0.66); opacity:0;" 
                             data-26500="transform: translate(-50%, -50%) scale(0.81); opacity:1;"
                             data-28500="left: 50%; transform: translate(-50%, -50%) scale(0.81); opacity:1;" 
-                            data-29000="left: 25%; transform: translate(-50%, -50%) scale(0.81); opacity:1;" 
+                            data-29500="left: 0%; transform: translate(-50%, -50%) scale(0.81); opacity:1;" 
                             data-30500="left: -50%; transform: translate(-50%, -50%) scale(0.81); opacity:0;"
                             >
                             <input id="modalToggle1" class="hide" type="checkbox">
@@ -400,17 +400,18 @@
                     <div class="content"
                         >
                         <div class="bg-in" 
-                            data-28500="left: 150%; transform: translate(-50%, -50%) scale(0.81); opacity:1;" 
+                            data-28500="left: 150%; transform: translate(-50%, -50%) scale(0.81); opacity:0;" 
                             data-30500="left: 50%; transform: translate(-50%, -50%) scale(0.81); opacity:1;"
                             data-32500="left: 50%; transform: translate(-50%, -50%) scale(0.81);"
-                            data-33000="left: 25%; transform: translate(-50%, -50%) scale(0.81); opacity:1;"
+                            data-33500="left: 0%; transform: translate(-50%, -50%) scale(0.81); opacity:1;"
                             data-34500="left: -50%; transform: translate(-50%, -50%) scale(0.81); opacity:0;"
                             >
                             <input id="modalToggle2" class="hide" type="checkbox">
                             <div class="modal">
                                 <label class="pop-btn btn-open" for="modalToggle2" onmouseover="_onrollOver(true)"
                                     onmouseout="_onrollOver(false)" 
-                                    data-31500="top:35%; left:49%;">Touch me!</label>
+                                    data-28500="top:35%; left:49%;"
+                                    >Touch me!</label>
                                 <div class="inside">
                                     <label class="btn-close" for="modalToggle2"><i class="xi-close-thin"></i></label>
                                     <iframe src="https://bpthess.github.io/javascript/tetris_game"
@@ -420,7 +421,7 @@
                             </div>
                             <div class="item" 
                                 data-29500="transform: translateY(-50%) scale(0.71); opacity:0;"
-                                data-30500="transform: translateY(-50%) scale(1); opacity:1;"
+                                data-31000="transform: translateY(-50%) scale(1); opacity:1;"
                                 >
                                 <h2>TETRIS<br>GAME</h2>
                             </div>
@@ -439,8 +440,8 @@
 
                         >
                         <div class="bg-in" 
-                            data-32500="left: 150%; transform: translate(-50%, -50%) scale(0.81);" 
-                            data-34500="left: 50%; transform: translate(-50%, -50%) scale(0.81);"
+                            data-32500="left: 150%; transform: translate(-50%, -50%) scale(0.81); opacity:0;" 
+                            data-34500="left: 50%; transform: translate(-50%, -50%) scale(0.81); opacity:1;"
                             data-36500="left: 50%; transform: translate(-50%, -50%) scale(0.81); opacity:1;"
                             data-37500="left: 50%; transform: translate(-50%, -50%) scale(1); opacity:1; height:100vh;"
                             data-38500="height:0vh;"
@@ -455,7 +456,7 @@
                                 </div>
                              <div class="item" 
                                 data-33500="transform: translateY(-50%) scale(0.71); opacity:0;" 
-                                data-34500="transform: translateY(-50%) scale(1); opacity:1;"
+                                data-35000="transform: translateY(-50%) scale(1); opacity:1;"
                                 >
                                  <h2>WEATHER<br>APP</h2>
                              </div>
@@ -488,7 +489,8 @@
                     data-38500="display:block; transform: translate(-50%, -50%) scale(1.4); opacity:0;"
                     data-39500="opacity:1; transform: translate(-50%, -50%) scale(1);"
                     data-41500="opacity:1; transform: translate(-50%, -50%) scale(1);" 
-                    data-42500="transform: translate(-50%, -50%) scale(0.91); opacity:0;"
+                    data-42500="transform: translate(-50%, -50%) scale(0.91); opacity:0; display:block;"
+                    data-43000="display:none;"
                     >
                     ANIMATION</h1>
             <canvas id="canvas-dom2" 
@@ -497,50 +499,117 @@
             data-41500="opacity:1;"
             data-42500="opacity:0;"
             ></canvas>
-               <div id="cvs3" class="bg" 
-               data-42499="opacity:0;" 
-               data-42500="opacity:1;"
-               >
-                <canvas id="canvas3"></canvas>
-               </div>
+            <div id="cvs3" class="bg" 
+            data-42499="opacity:0;" 
+            data-42500="opacity:1;"
+            >
+             <canvas id="canvas3"></canvas>
+            </div>
                 <div id="top"
                    data-42500="top[swing]:60%; transform: translateY(-50%); opacity:0;"
                    data-43500="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-44500="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-45000="top[swing]:55%; transform: translateY(-50%); opacity:0;"
                    >
                     <div class="perspective">
                         <div class="card">
-                            <div class="thumb" style="background: url(https://bpthess.github.io/portfolio/images/bg253457.png) no-repeat center center">
+                            <div class="thumb" style="background: url(../static/images/bg2534577.jpg) no-repeat 57% center">
                             </div>
                             <h2
                             data-42500="left[swing]:-100px;"
                             data-43500="left[swing]:-60px;"
-                            >Red Moonlight</h2>
+                            >Blossoming Flowers</h2>
                             <span
                             data-42500="right[swing]:-310px;"
                             data-43500="right[swing]:-280px;"
-                            >Animation blink keyframe!</span>
+                            >setTimeout clearTimeout!</span>
+                            <div class="card-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
+                                    nam nesciunt unde voluptatum.
+                                </p>
+                                <button>VIEW</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </section>
         <!-- section_12 end -->
         <!-- section_13 str -->
-        <!--
-            <section id="section13">
-            <div class="inner">
-            </div>
+            <section id="section13"
+               data-44999="opacity:0; visibility: hidden;"
+               data-45000="opacity:1; visibility: visible;"
+               >
+                <div id="top"
+                   data-45000="top[swing]:60%; transform: translateY(-50%); opacity:0;"
+                   data-46000="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-47000="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-47500="top[swing]:55%; transform: translateY(-50%); opacity:0;"
+                   >
+                    <div class="perspective">
+                        <div class="card">
+                            <div class="thumb" style="background: url(../static/images/bg25345.png) no-repeat center bottom">
+                            </div>
+                            <h2
+                            data-45000="left[swing]:-100px;"
+                            data-46000="left[swing]:-60px;"
+                            >Red Moonlight</h2>
+                            <span
+                            data-45000="right[swing]:-310px;"
+                            data-46000="right[swing]:-280px;"
+                            >Animation blink keyframe!</span>
+                            <div class="card-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
+                                    nam nesciunt unde voluptatum.
+                                </p>
+                                <button>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
--->
         <!-- section_13 end -->
-        
         <!-- section_14 str -->
+            <section id="section14"
+               data-47499="opacity:0; visibility: hidden;"
+               data-47500="opacity:1; visibility: visible;"
+               >
+                <div id="top"
+                   data-47500="top[swing]:60%; transform: translateY(-50%); opacity:0;"
+                   data-48500="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-49500="top[swing]:50%; transform: translateY(-50%); opacity:1;"
+                   data-50000="top[swing]:55%; transform: translateY(-50%); opacity:0;"
+                   >
+                    <div class="perspective">
+                        <div class="card">
+                            <div class="thumb" style="background: url(../static/images/bg253458.png) no-repeat 55% center">
+                            </div>
+                            <h2
+                            data-47500="left[swing]:-100px;"
+                            data-48500="left[swing]:-60px;"
+                            >Pokemon Eevee</h2>
+                            <span
+                            data-47500="right[swing]:-310px;"
+                            data-48500="right[swing]:-280px;"
+                            >Transform Perspective!</span>
+                            <div class="card-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
+                                    nam nesciunt unde voluptatum.
+                                </p>
+                                <button>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         <!-- section_14 end -->
     </div>
 <!--  Wrap end  -->
 
 
-<!--  ################################## JS ######################################## -->
+<!--  ################################### JS ####################################### -->
 <!-- Common CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/common/skrollr.min.js"></script>
@@ -579,19 +648,10 @@
         $(this).parent('.bg-in').toggleClass("active");
         });
             
-        //마우스 이펙트_v1
-//        var o = $(".card");
-//        $("#top").on("mousemove", function (t) {
-//        var e = -($(window).innerWidth() / 2 - t.pageX) / 30,
-//        n = ($(window).innerHeight() / 2 - t.pageY) / 10;
-//        o.attr("style", "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)")
-//        })
-           
-        //마우스 이펙트_v2
+        //마우스 이펙트
         window.onmousemove = (e)=> {
         let winPercent = { x:e.clientX/window.innerWidth, y:e.clientY/window.innerHeight },
         distFromCenter = 1 - Math.abs((e.clientX - window.innerWidth/2)/window.innerWidth*2);
-
 
         gsap.timeline({defaults:{duration:0.5, overwrite:'auto'}})
         .to('.card', {rotation:-7+9*winPercent.x}, 0)
