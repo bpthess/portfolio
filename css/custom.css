@@ -143,7 +143,7 @@ section {
     overflow: hidden;
 }
 
-section > div {}
+section>div {}
 
 .fixed {
     position: fixed;
@@ -626,7 +626,6 @@ section h1 {
     transform: translate(-50%, -50%);
     background-size: auto 133.3333%;
     transition: width 0.2s, height 0.2s ease, transform cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity step-end;
-    padding: 15vh;
 }
 
 .bg-in .item {
@@ -647,6 +646,7 @@ section h1 {
     letter-spacing: 6.8px;
     margin-bottom: 0.75vh;
     text-shadow: 0 0.375vh 0.75vh rgba(0, 0, 0, 0.1);
+    padding: 15vh;
 }
 
 #section11 .bg-in .item h2 {
@@ -654,17 +654,17 @@ section h1 {
 }
 
 
-#section9 .content .bg-out,
+#section9 .content .bg-out.th1,
 #section9 .content .bg-in {
     background: url(../images/bg104.png) no-repeat center center/100%;
 }
 
-#section10 .content .bg-out,
+#section9 .content .bg-out.th2,
 #section10 .content .bg-in {
     background: url(../images/bg103.png) no-repeat center center/100%;
 }
 
-#section11 .content .bg-out,
+#section9 .content .bg-out.th3,
 #section11 .content .bg-in {
     background: url(../images/bg105.jpg) no-repeat center center/100%;
 }
@@ -838,11 +838,11 @@ section h1 {
 }
 */
 
-input[type="checkbox"]:checked ~ .modal .btn-open {
+input[type="checkbox"]:checked~.modal .btn-open {
     animation-name: btnExpand;
 }
 
-input[type="checkbox"]:checked ~ .modal .inside {
+input[type="checkbox"]:checked~.modal .inside {
     display: flex;
     justify-content: flex-end;
     align-items: center;
