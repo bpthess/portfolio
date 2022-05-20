@@ -1039,9 +1039,10 @@ iframe {
 .card-content {
     position: absolute;
     width: inherit;
+    height: 45%;
     top: 55%;
     left: 0;
-    padding: 20px;
+    padding: 10px 20px;
     text-align: center;
     transition: .5s;
     z-index: 5000;
