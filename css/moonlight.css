@@ -6,6 +6,7 @@ body {
 
 body {
     background-color: #002142;
+    overflow: hidden;
 }
 
 .frame {

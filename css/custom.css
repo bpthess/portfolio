@@ -955,6 +955,7 @@ iframe {
     color: #fff;
     font-size: 60px;
     width: 100%;
+    z-index: 11000;
 }
 
 .cont .img-area {}
@@ -984,12 +985,10 @@ iframe {
 
 /* cont2 */
 .cont2 .img-area img:nth-child(1) {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: -5%;
-    transform: scale(1);
-    object-fit: cover;
+    width: 85%;
+    left: 53%;
+    top: 47%;
+    transform: translate(-50%, -50%);
     z-index: -1;
 }
 
@@ -1012,48 +1011,37 @@ iframe {
 }
 
 .cont3 .img-area img:nth-child(1) {
-    width: 100%;
-    height: 100%;
-    left: -22%;
-    top: -20%;
-    transform: scale(0.9);
-    object-fit: scale-down;
+    width: 18%;
+    left: 20%;
+    top: 0;
     z-index: 10000;
 }
 
 .cont3 .img-area img:nth-child(2) {
-    width: 25%;
-    height: 100%;
-    left: 43%;
-    top: 30%;
-    object-fit: scale-down;
-    z-index: 10000;
+    width: 17%;
+    left: 10%;
+    top: 50%;
+    z-index: -1;
 }
 
 .cont3 .img-area img:nth-child(3) {
-    width: 25%;
-    height: 100%;
-    left: 60%;
-    top: -20%;
-    object-fit: scale-down;
+    width: 20%;
+    left: 65%;
+    top: 20%;
     z-index: 10000;
 }
 
 .cont3 .img-area img:nth-child(4) {
-    width: 45%;
-    height: 100%;
-    left: 25%;
-    top: 2%;
-    object-fit: cover;
-    z-index: -1;
+    width: 12%;
+    left: 47%;
+    top: 75%;
+    z-index: 10000;
 }
 
 .cont3 .img-area img:nth-child(5) {
-    width: 20%;
-    height: 100%;
-    left: 5%;
-    top: 15%;
-    object-fit: scale-down;
+    width: 22%;
+    left: 74%;
+    top: 33%;
     z-index: -1;
 }
 
