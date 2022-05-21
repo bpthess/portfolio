@@ -598,45 +598,6 @@
     <script type="module" src="js/space-1.js"></script>
     <script type="module" src="js/fireflies.js"></script>
     <script src="js/custom.js"></script>
-    
-<!-- Extension  -->
-    <script>
-       $(function () {
-           
-        //스크롤러
-        var s = skrollr.init({
-        smoothScrolling: true,
-        smoothScrollingDuration: 700,
-        });
-
-        //레이어팝업 열기 버튼
-        $('.touch').click(function () {
-        $('.layer-pop1').toggle('active');
-        })
-            
-        //레이어팝업 닫기 버튼
-        $('.x-btn').click(function () {
-        $('.layer-pop1').toggle();
-        })
-
-        //레이어팝업 확장
-        $(":checkbox").on('click', function(){
-        $(this).parent('.bg-in').toggleClass("active");
-        });
-            
-        //마우스 이펙트
-        window.onmousemove = (e)=> {
-        let winPercent = { x:e.clientX/window.innerWidth, y:e.clientY/window.innerHeight },
-        distFromCenter = 1 - Math.abs((e.clientX - window.innerWidth/2)/window.innerWidth*2);
-
-        gsap.timeline({defaults:{duration:0.5, overwrite:'auto'}})
-        .to('.card', {rotation:-7+9*winPercent.x}, 0)
-        }
-
-        })
-        </script>
-        
-        
 
 <!--  ############################### Canvas1__Common ######################################## -->
         <script type="x-shader/x-vertex" id="vertexshader">

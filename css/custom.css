@@ -1056,6 +1056,7 @@ iframe {
     object-fit: scale-down;
     z-index: 10000;
 }
+
 .cont3 .img-area img:nth-child(2) {
     width: 25%;
     height: 100%;
@@ -1064,6 +1065,7 @@ iframe {
     object-fit: scale-down;
     z-index: 10000;
 }
+
 .cont3 .img-area img:nth-child(3) {
     width: 25%;
     height: 100%;
@@ -1072,6 +1074,7 @@ iframe {
     object-fit: scale-down;
     z-index: 10000;
 }
+
 .cont3 .img-area img:nth-child(4) {
     width: 45%;
     height: 100%;
@@ -1080,6 +1083,7 @@ iframe {
     object-fit: cover;
     z-index: -1;
 }
+
 .cont3 .img-area img:nth-child(5) {
     width: 20%;
     height: 100%;
