@@ -143,7 +143,7 @@ section {
     overflow: hidden;
 }
 
-section > div {}
+section>div {}
 
 .fixed {
     position: fixed;
@@ -542,37 +542,7 @@ section h1 {
     overflow: hidden;
     background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
     background-size: cover;
-    background-blend-mode: hard-light;
-    -webkit-animation: hue-rotate 3s linear infinite;
-    animation: hue-rotate 3s linear infinite;
-}
-
-@-webkit-keyframes hue-rotate {
-    from {
-        -moz-filter: hue-rotate(0);
-        -ms-filter: hue-rotate(0);
-        filter: hue-rotate(0);
-    }
-
-    to {
-        -moz-filter: hue-rotate(360deg);
-        -ms-filter: hue-rotate(360deg);
-        filter: hue-rotate(360deg);
-    }
-}
-
-@keyframes hue-rotate {
-    from {
-        -moz-filter: hue-rotate(0);
-        -ms-filter: hue-rotate(0);
-        filter: hue-rotate(0);
-    }
-
-    to {
-        -moz-filter: hue-rotate(360deg);
-        -ms-filter: hue-rotate(360deg);
-        filter: hue-rotate(360deg);
-    }
+    backdrop-filter: brightness(50%);
 }
 
 #section8 h1 {
@@ -584,11 +554,27 @@ section h1 {
 
     /*    background-image: linear-gradient(180deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%);*/
     background-image: linear-gradient(90deg, #FF9FE1, #8727FF);
+    animation: bg2 1s infinite ease;
     z-index: 10001;
-    /*    -webkit-text-stroke: 1px white;*/
-    mix-blend-mode: difference;
-    /*        mix-blend-mode: lighten;*/
-    mix-blend-mode: screen;
+}
+
+
+@keyframes bg2 {
+    0% {
+        /*        background-image: linear-gradient(35deg, #d676eb 30%, #8227ff 70%);*/
+        /*        background-image: linear-gradient(35deg, #fbf4ec 0%, #ecd7c8 16.5%, #eea4bc 33%, #be88c4 49.5%, #9186e7 66%, #92c9f9 82.5%, #c7f8ff 100%);*/
+
+        /*        background-image: linear-gradient(30deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%)*/
+        background-image: linear-gradient(30deg, #FF9FE1, #8727FF)
+    }
+
+    100% {
+        /*        background-image: linear-gradient(360deg, #d676eb 30%, #8227ff 70%);*/
+        /*        background-image: linear-gradient(360deg, #fbf4ec 0%, #ecd7c8 16.5%, #eea4bc 33%, #be88c4 49.5%, #9186e7 66%, #92c9f9 82.5%, #c7f8ff 100%);*/
+
+        /*        background-image: linear-gradient(360deg, rgb(255, 59, 59) 0%, rgb(221, 24, 196) 50%, rgb(84, 126, 255) 100%)*/
+        background-image: linear-gradient(180deg, #FF9FE1, #8727FF)
+    }
 }
 
 
@@ -635,7 +621,7 @@ section h1 {
 .bg-in {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -662,7 +648,7 @@ section h1 {
     letter-spacing: 6.8px;
     margin-bottom: 0.75vh;
     text-shadow: 0 0.375vh 0.75vh rgba(0, 0, 0, 0.1);
-    padding: 0 15vh;
+    padding: 15vh;
 }
 
 #section11 .bg-in .item h2 {
@@ -854,11 +840,11 @@ section h1 {
 }
 */
 
-input[type="checkbox"]:checked ~ .modal .btn-open {
+input[type="checkbox"]:checked~.modal .btn-open {
     animation-name: btnExpand;
 }
 
-input[type="checkbox"]:checked ~ .modal .inside {
+input[type="checkbox"]:checked~.modal .inside {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -961,157 +947,115 @@ iframe {
     }
 }
 
-.ani-container {
-    width: 1000vw;
+
+.perspective {
+    width: 100%;
+    perspective: 1000px;
 }
 
-#section14,
-#section15 {
-    width: 100vw;
-
-}
-
-.ani-container iframe {
-    width: 40vw;
-    height: 50vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.cont .inner {
+#top {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+    position: relative;
 }
 
-.cont h2 {
-    color: #fff;
-    font-size: 60px;
+.card {
+    width: 300px;
+    height: 453px;
+    margin: auto;
+    box-shadow: 0 70px 63px -60px #494848;
+    transform-style: preserve-3d;
+    transition: transform 0.05s linear;
+    border-radius: 15px;
+}
+
+.card .thumb {
+    background-size: cover;
+    height: 100%;
     width: 100%;
+    border-radius: 15px;
 }
 
-.cont .img-area {}
-
-.cont .img-area img {
-    object-position: center;
+.card .thumb:after {
+    background: inherit;
+    content: "";
+    display: block;
     position: absolute;
-    /*    background: url(/static/images/exam1.png) no-repeat center/cover;*/
-}
-
-/* cont1 */
-.cont1 .img-area img:nth-child(1) {
-    left: 35%;
-    top: 40%;
-    width: 50%;
-    object-fit: scale-down;
-    z-index: 10000;
-}
-
-.cont1 .img-area img:nth-child(2) {
-    left: 5%;
-    top: 0%;
-    width: 50%;
-    object-fit: scale-down;
-    z-index: -1;
-}
-
-/* cont2 */
-.cont2 .img-area img:nth-child(1) {
+    left: -60px;
+    top: 40px;
     width: 100%;
-    height: 100%;
-    left: 0%;
-    top: -5%;
-    transform: scale(1);
-    object-fit: cover;
+    height: 108%;
     z-index: -1;
+    filter: blur(55px);
+    pointer-events: none !important;
+    user-select: none !important;
 }
 
-.cont2 .img-area img:nth-child(2) {
-    width: 25%;
-    height: 100%;
-    left: 5%;
-    top: 25%;
-    object-fit: scale-down;
-    z-index: 10000;
+.card h2 {
+    position: absolute;
+    top: 0;
+    left: -60px;
+    font-size: 40px;
+    font-weight: 100;
+    transform: translateZ(80px);
+    color: #fff;
+    width: 50px;
+    user-select: none;
 }
 
-.cont2 .img-area img:nth-child(3) {
-    width: 100%;
-    height: 100%;
-    left: -10%;
-    top: -20%;
-    object-fit: scale-down;
-    z-index: 10000;
+.card span {
+    position: absolute;
+    bottom: 40px;
+    right: -310px;
+    font-size: 37px;
+    font-weight: 600;
+    transform: translateZ(35px);
+    color: #fff;
+    width: 500px;
+    user-select: none;
 }
 
-.cont3 .img-area img:nth-child(1) {
-    width: 100%;
-    height: 100%;
-    left: -22%;
-    top: -20%;
-    transform: scale(0.9);
-    object-fit: scale-down;
-    z-index: 10000;
+.card:hover,
+.card .thumb:hover {
+    overflow: hidden;
 }
 
-.cont3 .img-area img:nth-child(2) {
-    width: 25%;
-    height: 100%;
-    left: 43%;
-    top: 30%;
-    object-fit: scale-down;
-    z-index: 10000;
+.card:hover .card-content {
+    top: 0;
+    opacity: 1;
+    height: inherit;
+    padding-top: 150px;
+    visibility: visible;
 }
 
-.cont3 .img-area img:nth-child(3) {
-    width: 25%;
-    height: 100%;
-    left: 60%;
-    top: -20%;
-    object-fit: scale-down;
-    z-index: 10000;
+.card:hover .thumb+h2,
+.card:hover .thumb+h2+span {
+    display: none;
 }
 
-.cont3 .img-area img:nth-child(4) {
-    width: 45%;
-    height: 100%;
-    left: 25%;
-    top: 2%;
-    object-fit: cover;
-    z-index: -1;
+.card-content {
+    position: absolute;
+    width: inherit;
+    top: 55%;
+    left: 0;
+    padding: 20px;
+    text-align: center;
+    transition: .5s;
+    z-index: 5000;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.cont3 .img-area img:nth-child(5) {
-    width: 20%;
-    height: 100%;
-    left: 5%;
-    top: 15%;
-    object-fit: scale-down;
-    z-index: -1;
+.card-content p {
+    color: #fff;
 }
 
-.cont1 {}
 
-.cont2 {}
-
-.cont3 {}
-
-
-.cont1 iframe {
-    width: 40vw;
-    height: 50vh;
-}
-
-.cont2 iframe {
-    background-color: #666;
-}
-
-.cont3 iframe {
-    background: green;
-}
 
 /********* SECTION : aboutIntro **********/
 /*
