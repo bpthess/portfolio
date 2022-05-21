@@ -20,7 +20,7 @@
 }
 
 body {
-    height: 900px;
+    height: 1000px;
 }
 
 /* Reset CSS */
@@ -930,10 +930,6 @@ iframe {
     width: 1000vw;
 }
 
-#section14,
-#section15 {
-    width: 100vw;
-}
 
 .ani-container iframe {
     width: 40vw;
@@ -968,28 +964,124 @@ iframe {
 
 /* cont1 */
 .cont1 .img-area img:nth-child(1) {
-    left: 35%;
-    top: 40%;
-    width: 50%;
-    object-fit: scale-down;
+    width: 20%;
+    left: 18%;
+    top: -12%;
     z-index: 10000;
+    background-blend-mode: hard-light;
+    -webkit-animation: hue-rotate 3s linear infinite;
+    animation: hue-rotate 3s linear infinite;
 }
 
 .cont1 .img-area img:nth-child(2) {
-    left: 5%;
-    top: 0%;
-    width: 50%;
-    object-fit: scale-down;
+    width: 17%;
+    left: 10%;
+    top: 50%;
     z-index: -1;
+    animation: ani3 3s linear infinite;
 }
+
+@keyframes ani3 {
+    0% {
+        left: 10%;
+    }
+
+    50% {
+        left: 12%;
+    }
+
+    100% {
+        left: 10%;
+    }
+}
+
+.cont1 .img-area img:nth-child(3) {
+    width: 20%;
+    left: 74%;
+    top: 20%;
+    z-index: 10000;
+    animation: ani2 4s linear infinite, hue-rotate 3s linear infinite;
+    background-blend-mode: hard-light;
+}
+
+@keyframes ani2 {
+    0% {
+        top: 20%;
+    }
+
+    50% {
+        top: 15%;
+    }
+
+    100% {
+        top: 20%;
+    }
+}
+
+.cont1 .img-area img:nth-child(4) {
+    width: 12%;
+    left: 47%;
+    top: 75%;
+    z-index: 10000;
+    animation: ani4 3s linear infinite;
+}
+
+@keyframes ani4 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#world {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999999;
+    
+}
+
+.cont1 .img-area img:nth-child(5) {
+    width: 28%;
+    left: 70%;
+    top: 25%;
+    z-index: -1;
+    background-blend-mode: hard-light;
+    -webkit-animation: hue-rotate 3s linear infinite;
+    animation: hue-rotate 3s linear infinite;
+    transform: rotate3d(1, 1, 1, 41deg);
+}
+
 
 /* cont2 */
 .cont2 .img-area img:nth-child(1) {
-    width: 85%;
+    width: 87%;
     left: 53%;
     top: 47%;
     transform: translate(-50%, -50%);
     z-index: -1;
+    animation: ani1 4s linear infinite;
+}
+
+@keyframes ani1 {
+    0% {
+        top: 47%;
+    }
+
+    50% {
+        top: 50%;
+    }
+
+    100% {
+        top: 47%;
+    }
 }
 
 .cont2 .img-area img:nth-child(2) {
@@ -1010,39 +1102,26 @@ iframe {
     z-index: 10000;
 }
 
+/* cont3 */
 .cont3 .img-area img:nth-child(1) {
-    width: 18%;
-    left: 20%;
-    top: 0;
+    left: 35%;
+    top: 40%;
+    width: 50%;
+    object-fit: scale-down;
     z-index: 10000;
 }
 
 .cont3 .img-area img:nth-child(2) {
-    width: 17%;
-    left: 10%;
-    top: 50%;
-    z-index: -1;
+    left: 5%;
+    top: -3%;
+    width: 50%;
 }
 
 .cont3 .img-area img:nth-child(3) {
+    left: 68%;
+    top: 60%;
     width: 20%;
-    left: 65%;
-    top: 20%;
     z-index: 10000;
-}
-
-.cont3 .img-area img:nth-child(4) {
-    width: 12%;
-    left: 47%;
-    top: 75%;
-    z-index: 10000;
-}
-
-.cont3 .img-area img:nth-child(5) {
-    width: 22%;
-    left: 74%;
-    top: 33%;
-    z-index: -1;
 }
 
 .cont1 {}
@@ -1051,18 +1130,13 @@ iframe {
 
 .cont3 {}
 
-.cont1 iframe {
+.cont iframe {
     width: 40vw;
     height: 50vh;
+    overflow: hidden;
+    border-radius: 7px;
 }
 
-.cont2 iframe {
-    background-color: #666;
-}
-
-.cont3 iframe {
-    background: green;
-}
 
 /********* SECTION : aboutIntro **********/
 /*
