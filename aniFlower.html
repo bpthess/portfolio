@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blossoming Flowers</title>
-    <!--  common  -->
-    <link rel="stylesheet" href="/static/css/flowers.css">
-</head>
+  <meta charset="UTF-8">
+  <title>Blossoming Flowers</title>
+  <link rel="stylesheet" href="/static/css/Blossom.css">
 
+</head>
+<body>
 <body class="not-loaded">
   <div class="night"></div>
   <div class="flowers">
@@ -307,15 +305,9 @@
       </div>
     </div>
   </div>
-  <script>
-      onload = () => {
-          const c = setTimeout(() => {
-              document.body.classList.remove("not-loaded");
-              clearTimeout(c);
-          }, 1000);
-      };
-  </script>
 </body>
 <!-- partial -->
+  <script  src="/static/js/flower.js"></script>
 
+</body>
 </html>
