@@ -447,7 +447,10 @@
                             data-38500="height:0vh;"
                             >
                             <input id="modalToggle3" class="hide" type="checkbox">
-                            <div class="modal">
+                            <div class="modal"
+                               data-37500="opacity:1;"
+                               data-38500="opacity:0;"
+                               >
                                 <label class="pop-btn btn-open" for="modalToggle3" onmouseover="_onrollOver(true)" onmouseout="_onrollOver(false)">Touch me!</label>
                                 <div class="inside">
                                     <label class="btn-close" for="modalToggle3"><i class="xi-close-thin"></i></label>
@@ -457,6 +460,8 @@
                              <div class="item" 
                                 data-33500="transform: translateY(-50%) scale(0.71); opacity:0;" 
                                 data-35000="transform: translateY(-50%) scale(1); opacity:1;"
+                                data-37500="transform: translateY(-50%) scale(1); opacity:1;"
+                                data-38500="transform: translateY(-50%) scale(1); opacity:0;"
                                 >
                                  <h2>WEATHER<br>APP</h2>
                              </div>
@@ -482,15 +487,15 @@
             <!-- JS__Section end -->
         <!-- section_12 str -->
             <section id="section12" 
-                data-38499="opacity:0; visibility: hidden;"
-                data-38500="opacity:1; visibility: visible;"
+                data-38999="opacity:0; visibility: hidden;"
+                data-39000="opacity:1; visibility: visible;"
                    >
                     <h1 
-                    data-38500="display:block; transform: translate(-50%, -50%) scale(1.4); opacity:0;"
-                    data-39500="opacity:1; transform: translate(-50%, -50%) scale(1);"
-                    data-41500="opacity:1; transform: translate(-50%, -50%) scale(1);" 
-                    data-42500="transform: translate(-50%, -50%) scale(0.91); opacity:0; display:block;"
-                    data-43000="display:none;"
+                    data-39000="display:block; transform: translate(-50%, -50%) scale(1.4); opacity:0;"
+                    data-40000="opacity:1; transform: translate(-50%, -50%) scale(1);"
+                    data-42000="opacity:1; transform: translate(-50%, -50%) scale(1);" 
+                    data-43000="transform: translate(-50%, -50%) scale(0.91); opacity:0; display:block;"
+                    data-43500="display:none;"
                     >
                     ANIMATION</h1>
             <canvas id="canvas-dom2" 
@@ -500,111 +505,82 @@
             data-42500="opacity:0;"
             ></canvas>
             <div id="cvs3" class="bg" 
-            data-42499="opacity:0;" 
-            data-42500="opacity:1;"
+            data-42999="opacity:0;" 
+            data-43000="opacity:1;"
             >
              <canvas id="canvas3"></canvas>
             </div>
-                <div id="top"
-                   data-42500="top[swing]:60%; transform: translate(-50%, -50%); opacity:0;"
-                   data-43500="top[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-44500="left[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-45000="left[swing]:47%; transform: translate(-50%, -50%); opacity:0;"
-                   >
-                    <div class="perspective">
-                        <div class="card">
-                            <div class="thumb" style="background: url(https://bpthess.github.io/portfolio/images/bg2534577.jpg) no-repeat 57% center">
-                            </div>
-                            <h2
-                            data-42500="left[swing]:-100px;"
-                            data-43500="left[swing]:-60px;"
-                            >Blossoming Flowers</h2>
-                            <span
-                            data-42500="right[swing]:-310px;"
-                            data-43500="right[swing]:-280px;"
-                            >setTimeout clearTimeout!</span>
-                            <div class="card-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
-                                    nam nesciunt unde voluptatum.
-                                </p>
-                                <button>VIEW</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         <!-- section_12 end -->
         <!-- section_13 str -->
             <section id="section13"
-               data-44999="opacity:0; visibility: hidden;"
-               data-45000="opacity:1; visibility: visible;"
+               data-42999="opacity:0; visibility: hidden;"
+               data-43000="opacity:1; visibility: visible; left:100%;"
+               data-44000="opacity:1; visibility: visible; left:0%;"
+               data-45000="opacity:1; visibility: visible; left:-100%;"
                >
-                <div id="top"
-                   data-45000="top[swing]:60%; transform: translate(-50%, -50%); opacity:0;"
-                   data-46000="top[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-47000="left[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-47500="left[swing]:47%; transform: translate(-50%, -50%); opacity:0;"
-                   >
-                    <div class="perspective">
-                        <div class="card">
-                            <div class="thumb" style="background: url(https://bpthess.github.io/portfolio/images/bg25345.png) no-repeat center bottom">
-                            </div>
-                            <h2
-                            data-45000="left[swing]:-100px;"
-                            data-46000="left[swing]:-60px;"
-                            >Red Moonlight</h2>
-                            <span
-                            data-45000="right[swing]:-310px;"
-                            data-46000="right[swing]:-280px;"
-                            >Animation blink keyframe!</span>
-                            <div class="card-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
-                                    nam nesciunt unde voluptatum.
-                                </p>
-                                <button>VIEW</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               <div class="ani-container">
+                   <div class="cont cont1">
+                       <div class="inner">
+                           <h2>Blossoming<br> Flowers</h2>
+                           <div class="img-area">
+                               <img src="/static/images/exam1.png" alt="">
+                               <img src="/static/images/exam6.png" alt="">
+<!--                               <img src="" alt="">-->
+                           </div>
+                           <iframe src="https://kes7364.github.io/flower/" frameborder="0"></iframe>
+                       </div>
+                   </div>
+               </div>
             </section>
         <!-- section_13 end -->
         <!-- section_14 str -->
             <section id="section14"
-               data-47499="opacity:0; visibility: hidden;"
-               data-47500="opacity:1; visibility: visible;"
+               data-43999="opacity:0; visibility: hidden;"
+               data-44000="opacity:1; visibility: visible; left:150%;"
+               data-45000="opacity:1; visibility: visible; left:0%;"
+               data-46000="opacity:1; visibility: visible; left:-150%;"
                >
-                <div id="top"
-                   data-47500="top[swing]:60%; transform: translate(-50%, -50%); opacity:0;"
-                   data-48500="top[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-49500="left[swing]:50%; transform: translate(-50%, -50%); opacity:1;"
-                   data-50000="left[swing]:47%; transform: translate(-50%, -50%); opacity:0;"
-                   >
-                    <div class="perspective">
-                        <div class="card">
-                            <div class="thumb" style="background: url(https://bpthess.github.io/portfolio/images/bg253458.png) no-repeat 55% center">
-                            </div>
-                            <h2
-                            data-47500="left[swing]:-100px;"
-                            data-48500="left[swing]:-60px;"
-                            >Pokemon Eevee</h2>
-                            <span
-                            data-47500="right[swing]:-310px;"
-                            data-48500="right[swing]:-280px;"
-                            >Transform Perspective!</span>
-                            <div class="card-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque earum error est eum facere harum
-                                    nam nesciunt unde voluptatum.
-                                </p>
-                                <button>VIEW</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               <div class="ani-container">
+                   <div class="cont cont2">
+                       <div class="inner">
+                           <h2>Red<br> Moonlight</h2>
+                           <div class="img-area">
+                               <img src="/static/images/exam7.png" alt="">
+<!--                               <img src="/static/images/exam4.png" alt="">-->
+<!--                               <img src="/static/images/exam5.png" alt="">-->
+                           </div>
+                           <iframe src="https://bpthess.github.io/portfolio/redMoon" frameborder="0"></iframe>
+                       </div>
+                   </div>
+               </div>
             </section>
         <!-- section_14 end -->
+        <!-- section_15 str -->
+            <section id="section15"
+               data-44999="opacity:0; visibility: hidden;"
+               data-45000="opacity:1; visibility: visible; left:150%;"
+               data-46000="opacity:1; visibility: visible; left:0%;"
+               data-47000="opacity:1; visibility: visible; left:-150%;"
+               >
+               <div class="ani-container">
+                   <div class="cont cont3">
+                       <div class="inner">
+                           <h2>Red<br> Moonlight</h2>
+                           <div class="img-area">
+                               <img src="/static/images/exam8.png" alt="">
+                               <img src="/static/images/exam9.png" alt="">
+                               <img src="/static/images/exam10.png" alt="">
+                               <img src="/static/images/exam16.png" alt="">
+                               <img src="/static/images/exam19.png" alt="">
+                           </div>
+                           <iframe src="https://bpthess.github.io/portfolio/flower" frameborder="0"></iframe>
+                       </div>
+                   </div>
+               </div>
+            </section>
+        <!-- section_15 end -->
+        <!-- section_16 str -->
     </div>
 <!--  Wrap end  -->
 
