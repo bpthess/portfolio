@@ -11,12 +11,12 @@ var _ShaderPass = require("https://unpkg.com/three@0.120.0/examples/jsm/postproc
 var _OrbitControls = require("https://unpkg.com/three@0.120.0/examples/jsm/controls/OrbitControls.js");
 
 const ENTIRE_SCENE = 0,
-      BLOOM_SCENE = 1;
+    BLOOM_SCENE = 1;
 const bloomLayer = new THREE.Layers();
 bloomLayer.set(BLOOM_SCENE);
 const materials = {};
 const darkMaterial = new THREE.MeshBasicMaterial({
-  color: "black"
+    color: "black"
 });
 const vert = `
     varying vec3 vNormal;
@@ -226,15 +226,15 @@ const fragflame = `
 
 `;
 let options = {
-  exposure: 2.8,
-  bloomStrength: 3.5,
-  bloomRadius: 0.39,
-  color0: [0, 0, 0],
-  color1: [81, 14, 5],
-  color2: [181, 156, 24],
-  color3: [66, 66, 66],
-  color4: [79, 79, 79],
-  color5: [64, 27, 0]
+    exposure: 2.8,
+    bloomStrength: 3.5,
+    bloomRadius: 0.39,
+    color0: [0, 0, 0],
+    color1: [81, 14, 5],
+    color2: [181, 156, 24],
+    color3: [66, 66, 66],
+    color4: [79, 79, 79],
+    color5: [64, 27, 0]
 }; // let options = {
 //   exposure: 2.8,
 //   bloomStrength: 3.5,
@@ -263,182 +263,182 @@ color.open();
 gui.close();
 let scene, camera, renderer, controls, material, material2, material3, bloomPass, bloomComposer, composer, finalPass, finalComposer;
 const width = window.innerWidth,
-      height = window.innerHeight;
+    height = window.innerHeight;
 
 function init() {
-  createScene();
-  postProc();
-  mesh();
-  flame();
-  cylinder();
-  animatBloom();
+    createScene();
+    postProc();
+    mesh();
+    flame();
+    cylinder();
+    animatBloom();
 }
 
 function createScene() {
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(3.4369982203815655, 3.5239085092722098, 2.994862383531814);
-  renderer = new THREE.WebGLRenderer();
-  renderer.antialias = true;
-  renderer.setClearColor(new THREE.Color('#000'));
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(width, height);
-  controls = new _OrbitControls.OrbitControls(camera, renderer.domElement);
-  document.getElementById("world").appendChild(renderer.domElement);
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(3.4369982203815655, 3.5239085092722098, 2.994862383531814);
+    renderer = new THREE.WebGLRenderer();
+    renderer.antialias = true;
+    renderer.setClearColor(new THREE.Color('#000'));
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    controls = new _OrbitControls.OrbitControls(camera, renderer.domElement);
+    document.getElementById("world").appendChild(renderer.domElement);
 }
 
 function postProc() {
-  const renderScene = new _RenderPass.RenderPass(scene, camera);
-  bloomPass = new _UnrealBloomPass.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-  bloomPass.threshold = options.bloomThreshold;
-  bloomPass.strength = options.bloomStrength;
-  bloomPass.radius = options.bloomRadius;
-  bloomComposer = new _EffectComposer.EffectComposer(renderer);
-  bloomComposer.addPass(renderScene);
-  bloomComposer.addPass(bloomPass);
+    const renderScene = new _RenderPass.RenderPass(scene, camera);
+    bloomPass = new _UnrealBloomPass.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+    bloomPass.threshold = options.bloomThreshold;
+    bloomPass.strength = options.bloomStrength;
+    bloomPass.radius = options.bloomRadius;
+    bloomComposer = new _EffectComposer.EffectComposer(renderer);
+    bloomComposer.addPass(renderScene);
+    bloomComposer.addPass(bloomPass);
 }
 
 function mesh() {
-  const geometry = new THREE.SphereBufferGeometry(1, 30, 30);
-  material = new THREE.ShaderMaterial({
-    uniforms: {
-      time: {
-        type: "f",
-        value: 0.0
-      },
-      perlinnoise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
-      },
-      sparknoise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/sparklenoise.jpg")
-      },
-      color5: {
-        value: new THREE.Vector3(...options.color5)
-      },
-      color4: {
-        value: new THREE.Vector3(...options.color4)
-      },
-      color3: {
-        value: new THREE.Vector3(...options.color3)
-      },
-      color2: {
-        value: new THREE.Vector3(...options.color2)
-      },
-      color1: {
-        value: new THREE.Vector3(...options.color1)
-      },
-      color0: {
-        value: new THREE.Vector3(...options.color0)
-      },
-      resolution: {
-        value: new THREE.Vector2(width, height)
-      }
-    },
-    vertexShader: vert,
-    fragmentShader: frag
-  });
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.scale.set(0.78, 0.78, 0.78);
-  mesh.position.set(1 + 0, 0, 0);
-  scene.add(mesh);
+    const geometry = new THREE.SphereBufferGeometry(1, 30, 30);
+    material = new THREE.ShaderMaterial({
+        uniforms: {
+            time: {
+                type: "f",
+                value: 0.0
+            },
+            perlinnoise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
+            },
+            sparknoise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/sparklenoise.jpg")
+            },
+            color5: {
+                value: new THREE.Vector3(...options.color5)
+            },
+            color4: {
+                value: new THREE.Vector3(...options.color4)
+            },
+            color3: {
+                value: new THREE.Vector3(...options.color3)
+            },
+            color2: {
+                value: new THREE.Vector3(...options.color2)
+            },
+            color1: {
+                value: new THREE.Vector3(...options.color1)
+            },
+            color0: {
+                value: new THREE.Vector3(...options.color0)
+            },
+            resolution: {
+                value: new THREE.Vector2(width, height)
+            }
+        },
+        vertexShader: vert,
+        fragmentShader: frag
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.scale.set(0.78, 0.78, 0.78);
+    mesh.position.set(1 + 0, 0, 0);
+    scene.add(mesh);
 }
 
 function cylinder() {
-  const geometry = new THREE.CylinderBufferGeometry(1.11, 0, 5.3, 50, 50, true);
-  material2 = new THREE.ShaderMaterial({
-    uniforms: {
-      perlinnoise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/water-min.jpg")
-      },
-      color4: {
-        value: new THREE.Vector3(...options.color4)
-      },
-      time: {
-        type: "f",
-        value: 0.0
-      },
-      noise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
-      }
-    },
-    // wireframe:true,
-    vertexShader: vertcylinder,
-    fragmentShader: fragcylinder,
-    transparent: true,
-    depthWrite: false,
-    side: THREE.DoubleSide
-  });
-  const mesh = new THREE.Mesh(geometry, material2);
-  mesh.rotation.set(0, 0, -Math.PI / 2);
-  mesh.position.set(1 + -4.05, 0, 0);
-  mesh.scale.set(1.5, 1.7, 1.5);
-  scene.add(mesh);
+    const geometry = new THREE.CylinderBufferGeometry(1.11, 0, 5.3, 50, 50, true);
+    material2 = new THREE.ShaderMaterial({
+        uniforms: {
+            perlinnoise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/water-min.jpg")
+            },
+            color4: {
+                value: new THREE.Vector3(...options.color4)
+            },
+            time: {
+                type: "f",
+                value: 0.0
+            },
+            noise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
+            }
+        },
+        // wireframe:true,
+        vertexShader: vertcylinder,
+        fragmentShader: fragcylinder,
+        transparent: true,
+        depthWrite: false,
+        side: THREE.DoubleSide
+    });
+    const mesh = new THREE.Mesh(geometry, material2);
+    mesh.rotation.set(0, 0, -Math.PI / 2);
+    mesh.position.set(1 + -4.05, 0, 0);
+    mesh.scale.set(1.5, 1.7, 1.5);
+    scene.add(mesh);
 }
 
 function flame() {
-  const geometry = new THREE.CylinderBufferGeometry(1, 0, 5.3, 50, 50, true);
-  material3 = new THREE.ShaderMaterial({
-    uniforms: {
-      perlinnoise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/water-min.jpg")
-      },
-      color4: {
-        value: new THREE.Vector3(...options.color5)
-      },
-      time: {
-        type: "f",
-        value: 0.0
-      },
-      noise: {
-        type: "t",
-        value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
-      }
-    },
-    // wireframe:true,
-    vertexShader: vertflame,
-    fragmentShader: fragflame,
-    transparent: true,
-    depthWrite: false,
-    side: THREE.DoubleSide
-  });
-  const mesh = new THREE.Mesh(geometry, material3);
-  mesh.rotation.set(0, 0, -Math.PI / 2);
-  mesh.position.set(1 + -4.78, 0, 0);
-  mesh.scale.set(2, 2, 2);
-  scene.add(mesh);
+    const geometry = new THREE.CylinderBufferGeometry(1, 0, 5.3, 50, 50, true);
+    material3 = new THREE.ShaderMaterial({
+        uniforms: {
+            perlinnoise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/water-min.jpg")
+            },
+            color4: {
+                value: new THREE.Vector3(...options.color5)
+            },
+            time: {
+                type: "f",
+                value: 0.0
+            },
+            noise: {
+                type: "t",
+                value: new THREE.TextureLoader().load("https://raw.githubusercontent.com/pizza3/asset/master/noise9.jpg")
+            }
+        },
+        // wireframe:true,
+        vertexShader: vertflame,
+        fragmentShader: fragflame,
+        transparent: true,
+        depthWrite: false,
+        side: THREE.DoubleSide
+    });
+    const mesh = new THREE.Mesh(geometry, material3);
+    mesh.rotation.set(0, 0, -Math.PI / 2);
+    mesh.position.set(1 + -4.78, 0, 0);
+    mesh.scale.set(2, 2, 2);
+    scene.add(mesh);
 }
 
 function updateDraw(deltaTime) {
-  material.uniforms.time.value = -deltaTime / (1000 * 2);
-  material2.uniforms.time.value = -deltaTime / (3000 * 2);
-  material3.uniforms.time.value = -deltaTime / (3000 * 2);
-  material.uniforms.color5.value = new THREE.Vector3(...options.color5);
-  material2.uniforms.color4.value = new THREE.Vector3(...options.color4);
-  material3.uniforms.color4.value = new THREE.Vector3(...options.color5);
-  material.uniforms.color3.value = new THREE.Vector3(...options.color3);
-  material.uniforms.color2.value = new THREE.Vector3(...options.color2);
-  material.uniforms.color1.value = new THREE.Vector3(...options.color1);
-  material.uniforms.color0.value = new THREE.Vector3(...options.color0);
+    material.uniforms.time.value = -deltaTime / (1000 * 2);
+    material2.uniforms.time.value = -deltaTime / (3000 * 2);
+    material3.uniforms.time.value = -deltaTime / (3000 * 2);
+    material.uniforms.color5.value = new THREE.Vector3(...options.color5);
+    material2.uniforms.color4.value = new THREE.Vector3(...options.color4);
+    material3.uniforms.color4.value = new THREE.Vector3(...options.color5);
+    material.uniforms.color3.value = new THREE.Vector3(...options.color3);
+    material.uniforms.color2.value = new THREE.Vector3(...options.color2);
+    material.uniforms.color1.value = new THREE.Vector3(...options.color1);
+    material.uniforms.color0.value = new THREE.Vector3(...options.color0);
 }
 
 function animatBloom(deltaTime) {
-  requestAnimationFrame(animatBloom);
-  updateDraw(deltaTime);
-  controls.update();
-  bloomPass.strength = options.bloomStrength;
-  bloomPass.radius = options.bloomRadius;
-  bloomComposer.render();
+    requestAnimationFrame(animatBloom);
+    updateDraw(deltaTime);
+    controls.update();
+    bloomPass.strength = options.bloomStrength;
+    bloomPass.radius = options.bloomRadius;
+    bloomComposer.render();
 }
 
 function handleResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 window.addEventListener("load", init);
