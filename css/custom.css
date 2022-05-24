@@ -158,6 +158,41 @@ iframe {
     display: block;
 }
 
+#canvas4 {
+    width: 40vw;
+    height: 50vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#canvas5 {
+    width: 100%;
+    height: 100%;
+}
+
+#canvas6 {
+    width: 40vw;
+    height: 50vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ani-container .bg {
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    background: url(../images/bg107.jpg) no-repeat center center/100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index:999999;
+    overflow: hidden;
+}
+
 
 /************************** Style CSS **************************/
 header span a:hover {
@@ -856,23 +891,24 @@ input[type="checkbox"]:checked ~ .modal .inside {
 .cont3 .img-area img:nth-child(1) {
     left: 35%;
     top: 40%;
-    width: 50%;
-    object-fit: scale-down;
+    width: 40%;
     z-index: 10000;
 }
 
 .cont3 .img-area img:nth-child(2) {
     left: 5%;
     top: -3%;
-    width: 50%;
+    width: 5%;
 }
 
+/*
 .cont3 .img-area img:nth-child(3) {
     left: 68%;
     top: 60%;
     width: 20%;
     z-index: 10000;
 }
+*/
 
 /* 마우스 효과 */
 .touch {

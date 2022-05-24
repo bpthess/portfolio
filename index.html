@@ -316,11 +316,13 @@
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);" 
                 data-27000="display:none;"
                 >JAVASCRIPT</h1>
+<!--
             <canvas id="canvas1"
                 data-21500="display:block; opacity:0;"
                 data-22500="opacity:1;"
                 data-26000="display:none;"
                 ></canvas>
+-->
             <div class="reverse bfw" 
                 data-21500="width: 0vw; height: 0vw; opacity:0.1;"
                 data-22500="width: 200vw; height: 200vw; opacity:0;"
@@ -496,12 +498,14 @@
                 data-43000="transform: translate(-50%, -50%) scale(0.91); opacity:0;"
                 >
                 ANIMATION</h1>
+<!--
             <canvas id="canvas2" 
             data-38499="display:none;"
             data-38500="display:block;"
             data-41500="opacity:1;"
             data-42500="opacity:0;"
             ></canvas>
+-->
             <div id="cvs3" class="bg" 
             data-42999="opacity:0;" 
             data-43000="opacity:1;"
@@ -546,11 +550,14 @@
                <div class="ani-container">
                    <div class="cont cont2">
                        <div class="inner">
-                           <h2>Red Moon<br>Animation</h2>
+                           <h2>Canvas<br>Animation</h2>
                            <div class="img-area">
                                <img src="images/archive3.png">
                            </div>
-                           <iframe src="https://bpthess.github.io/portfolio/redMoon" frameborder="0"></iframe>
+                           <div class="bg">
+                           <canvas id="canvas4">
+                           </canvas>
+                           </div>
                        </div>
                    </div>
                </div>
@@ -569,13 +576,14 @@
                        <div class="inner">
                            <h2>Blossoming<br> Flowers</h2>
                            <div class="img-area">
-                               <img src="images/exam1.png">
-                               <img src="images/archive1.png">
-                               <img src="images/archive2.png">
                            </div>
-                           <iframe src="https://bpthess.github.io/portfolio/aniFlower" frameborder="0"></iframe>
+                          <div class="bg">
+                           <canvas id="canvas5">
+                           </canvas>
+                          </div>
                        </div>
                    </div>
+<!--                  <canvas id="canvas6"></canvas>-->
                </div>
             </section>
         <!-- section_15 end -->
@@ -594,16 +602,186 @@
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
 <!--  Loading CDN  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-    <!-- Anime CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <!--  Custom JS  -->
     <script type="module" src="js/space.js"></script>
     <script type="module" src="js/space-1.js"></script>
     <script type="module" src="js/fireflies.js"></script>
-<!--    <script type="module" src="js/fireball.js"></script>-->
+    <script type="module" src="js/canvas_4.js"></script>
+    <script type="module" src="js/canvas_5.js"></script>
+    <script type="module" src="js/canvas_6.js"></script>
     <script src="js/custom.js"></script>
+    
+    <script>
+           var tp = 2;
+        var am = 3;
+        var ap = 360;
+        var ct = 100;
+        var vl = 10000;
+        var cameraPosZ = 5;
 
-<!--  ############################### Canvas1__Common ######################################## -->
+        var wf = false;
+        var setSizeZero = 0.001;
+        var colorMaterial = Math.random() * 0xFFFFFF;
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        function onMouseMove(event) {
+            event.preventDefault();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        var renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('canvas4'),
+            antialias: true,
+            alpha: true
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio = window.devicePixelRatio;
+        //document.body.appendChild(renderer.domElement);
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+            camera.updateProjectionMatrix();
+        }
+
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 500);
+        camera.position.set(0, 0, cameraPosZ);
+
+        var content = new THREE.Object3D();
+        var scene = new THREE.Scene();
+        var geometry = new THREE.TetrahedronGeometry(1,2);
+
+        scene.fog = new THREE.Fog(0x000000, 4, 5)
+
+        var easing = Expo.easeInOut;
+
+        function init() {
+            for (var i = 0; i < ct; i++) {
+                colorMaterial = 0xffffff - ((i++) * 1000);
+                console.log(i);
+                var material = new THREE.MeshPhongMaterial({
+                    color: colorMaterial,
+                    //side: THREE.DoubleSide,
+                    shading: THREE.FlatShading,
+                    //wireframe: wf,
+                    transparent: true
+                    //opacity: 0.8,
+                });
+                var cube = new THREE.Mesh(geometry, material);
+                var setSizeCube = Math.random() * 1;
+                cube.scale.set(setSizeZero, setSizeZero, setSizeZero);
+                cube.position.x = -Math.random() * am + Math.random() * am;
+                cube.position.z = -Math.random() * am + Math.random() * am;
+                cube.position.y = -Math.random() * am + Math.random() * am;
+                cube.rotation.x = Math.random() * 90 * Math.PI / 180;
+                cube.rotation.y = Math.random() * 90 * Math.PI / 180;
+                cube.rotation.z = Math.random() * 90 * Math.PI / 180;
+
+                content.add(cube);
+
+                TweenMax.to(cube.scale, tp, {
+                    x: setSizeCube,
+                    y: setSizeCube,
+                    z: setSizeCube,
+                    yoyo: true,
+                    repeat: -1,
+                    ease: easing,
+                    delay: 0.3 + 0.008 * i
+                });
+                TweenMax.to(cube.position, tp, {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    delay: 0.3 + 0.01 * i,
+                    yoyo: true,
+                    repeat: -1,
+                    ease: easing
+                });
+                //TweenMax.to(cube.rotation, tp, {x:0,y:0, z:0, delay:0.5+05*i, yoyo:true, repeat:-1, ease:easing});
+            }
+        }
+
+
+        function organize(pos) {
+            var contentIntersect = content.children;
+            for (var i = 0; i < contentIntersect.length; i++) {
+                console.log(i);
+                contentIntersect[i].opacity = 0.3;
+            }
+        }
+
+        var ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.4);
+
+        var lightFront = new THREE.PointLight(0xFFFFFF, 1, 70, 1);
+        var lightBack = new THREE.PointLight(0xFFFFFF, 1, 50, 1);
+        lightFront.position.set(5, 10, 5);
+        lightBack.position.set(-5, -10, -5);
+
+        scene.add(lightFront);
+        scene.add(lightBack);
+        scene.add(content);
+        scene.add(ambientLight);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            var rx = Math.sin(Date.now() / vl) * ap;
+            var ry = Math.cos(Date.now() / vl) * ap;
+
+            content.rotation.y = ry * Math.PI / 180;
+            content.rotation.x = ry * Math.PI / 180;
+
+            renderer.render(scene, camera);
+        }
+        document.addEventListener('mousemove', onMouseMove, false);
+
+        function newPlace(obj) {
+            var randomRotation = 270 * Math.PI / 180;
+            TweenMax.to(obj.rotation, tp * 2, {
+                z: randomRotation,
+                ease: easing,
+                yoyo: true,
+                repeat: -1
+            });
+
+            init();
+            animate();
+        }
+
+        newPlace(content);
+
+        function hola(num) {
+            TweenMax.to(camera.position, 1, {
+                z: num,
+                ease: easing
+            });
+        }
+    </script>
+    
+<!--  ############################ Canvas5__Common ##################################### -->
+        <script id="shader-fs" type="x-shader/x-fragment">
+            #ifdef GL_ES
+				  precision highp float;
+				  #endif
+    		void main(void) {
+    		 gl_FragColor = vec4(0.2, 0.3, 0.4, 1.0);
+    		}
+		</script>
+
+        <script id="shader-vs" type="x-shader/x-vertex">
+            attribute vec3 vertexPosition;
+
+            uniform mat4 modelViewMatrix;
+            uniform mat4 perspectiveMatrix;
+
+            void main(void) {
+  		    gl_Position = perspectiveMatrix * modelViewMatrix * vec4(  vertexPosition, 1.0);
+  	}
+        </script>
+<!--  ############################ Canvas1__Common ##################################### -->
         <script type="x-shader/x-vertex" id="vertexshader">
             varying vec2 vUv;
             void main() {
