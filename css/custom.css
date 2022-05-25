@@ -197,9 +197,13 @@ iframe {
 }
 
 #section14 .ani-container .bg {
-    background: url(../images/bg107.jpg) no-repeat center center/100%;
+    /*    background: url(../images/bg107.jpg) no-repeat center center/100%;*/
+    background: #000;
 }
 
+#section15 .ani-container .bg {
+    background: #000;
+}
 
 /************************** Style CSS **************************/
 header span a:hover {
