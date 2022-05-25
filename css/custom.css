@@ -41,6 +41,10 @@ body {
     height: 1000px;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .scroll {
     position: fixed;
     left: 10px;
@@ -185,12 +189,15 @@ iframe {
     position: absolute;
     width: 40vw;
     height: 50vh;
-    background: url(../images/bg107.jpg) no-repeat center center/100%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index:999999;
+    z-index: 30000;
     overflow: hidden;
+}
+
+#section14 .ani-container .bg {
+    background: url(../images/bg107.jpg) no-repeat center center/100%;
 }
 
 
@@ -499,6 +506,7 @@ header span a:hover {
     background-size: auto 133.3333%;
     transition: width 0.2s, height 0.2s ease, transform cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity step-end;
     border-radius: 3px;
+
 }
 
 .bg-in .item {
@@ -888,27 +896,77 @@ input[type="checkbox"]:checked ~ .modal .inside {
 }
 
 /* cont3 */
+.cont3 .img-area {
+    z-index: 30001;
+}
+
+.cont3 .img-area img {
+    animation: ani5 4s linear infinite;
+}
+
 .cont3 .img-area img:nth-child(1) {
-    left: 35%;
-    top: 40%;
-    width: 40%;
+    left: 20%;
+    top: 2%;
+    width: 4%;
+    /* transform: scale(0.8); */
     z-index: 10000;
+    animation-delay: 0.5s;
 }
 
 .cont3 .img-area img:nth-child(2) {
-    left: 5%;
+    left: 50%;
     top: -3%;
     width: 5%;
+    transform: translate(0px) scale(0.8);
+    z-index: 10000;
+    animation-delay: 1.5s;
 }
 
-/*
 .cont3 .img-area img:nth-child(3) {
     left: 68%;
-    top: 60%;
-    width: 20%;
-    z-index: 10000;
+    top: 35%;
+    width: 3%;
+    transform: translate(0px) scale(0.8);
+    animation-delay: 0.5s;
 }
-*/
+
+.cont3 .img-area img:nth-child(4) {
+    left: 80%;
+    top: 25%;
+    width: 4%;
+    transform: translate(0px) scale(0.8);
+    animation-delay: 1.6s;
+}
+
+.cont3 .img-area img:nth-child(5) {
+    left: 30%;
+    top: 65%;
+    width: 3%;
+    transform: translate(0px) scale(0.8);
+    animation-delay: 0.8s;
+}
+
+.cont3 .img-area img:nth-child(6) {
+    left: 75%;
+    top: 70%;
+    width: 4%;
+    transform: translate(0px) scale(0.8);
+    animation-delay: 1.7s;
+}
+
+@keyframes ani5 {
+    0% {
+        transform: translate(0, -50px) scale(0.8);
+    }
+
+    50% {
+        transform: translate(0, 0px) scale(0.8);
+    }
+
+    100% {
+        transform: translate(0, -50px) scale(0.8);
+    }
+}
 
 /* 마우스 효과 */
 .touch {

@@ -39,7 +39,7 @@
             ch = window.innerHeight;
             canvas.width = cw;
             canvas.height = ch;
-            gl.viewport(0, 0, canvas.width, canvas.height);
+            gl.viewport(10, 10, canvas.width, canvas.height);
 
             //    Load the vertex shader that's defined in a separate script
             //    block at the top of this page.

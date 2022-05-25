@@ -316,11 +316,13 @@
                 data-25600="opacity:1; transform: translate(-50%, -50%) scale(0.86);" 
                 data-27000="display:none;"
                 >JAVASCRIPT</h1>
+<!--
             <canvas id="canvas1"
                 data-21500="display:block; opacity:0;"
                 data-22500="opacity:1;"
                 data-26000="display:none;"
                 ></canvas>
+-->
             <div class="reverse bfw" 
                 data-21500="width: 0vw; height: 0vw; opacity:0.1;"
                 data-22500="width: 200vw; height: 200vw; opacity:0;"
@@ -496,12 +498,14 @@
                 data-43000="transform: translate(-50%, -50%) scale(0.91); opacity:0;"
                 >
                 ANIMATION</h1>
+<!--
             <canvas id="canvas2" 
             data-38499="display:none;"
             data-38500="display:block;"
             data-41500="opacity:1;"
             data-42500="opacity:0;"
             ></canvas>
+-->
             <div id="cvs3" class="bg" 
             data-42999="opacity:0;" 
             data-43000="opacity:1;"
@@ -523,13 +527,31 @@
                        <div class="inner">
                            <h2>Svg Bubble<br> Animation</h2>
                            <div class="img-area">
-                               <img src="images/archive4.png">
-                               <img src="images/archive5.png">
-                               <img src="images/archive6.png">
-                               <img src="images/archive7.png">
-                               <img src="images/archive8.png">
+                               <img src="images/archive4.png"
+                               data-43000="transform: translateX(0%);"
+                               data-45000="transform: translateX(-80%);"
+                               >
+                               <img src="images/archive5.png"
+                               data-43000="transform: translateX(0%);"
+                               data-45000="transform: translateX(-70%);"
+                               >
+                               <img src="images/archive6.png"
+                               data-43000="transform: translateX(50%);"
+                               data-45000="transform: translateX(-65%);"
+                               >
+                               <img src="images/archive7.png"
+                               data-43000="transform: translateX(70%);"
+                               data-45000="transform: translateX(-180%);"
+                               >
+                               <img src="images/archive8.png"
+                               data-43000="transform: translateX(50%) rotate3d(1, 1, 1, 41deg);"
+                               data-45000="transform: translateX(-65%) rotate3d(1, 1, 1, 41deg);"
+                               >
                            </div>
-                           <iframe src="https://bpthess.github.io/portfolio/svgBubble" frameborder="0"></iframe>
+                           <iframe src="https://bpthess.github.io/portfolio/svgBubble" frameborder="0"
+                               data-43000="transform: translate(-30%, -50%);"
+                               data-45000="transform: translate(-80%, -50%);"  
+                           ></iframe>
                        </div>
                    </div>
                </div>
@@ -546,9 +568,13 @@
                <div class="ani-container">
                    <div class="cont cont2">
                        <div class="inner">
-                           <h2>Canvas<br>Animation</h2>
+                           <h2
+                           >Canvas<br>Animation</h2>
                            <div class="img-area">
-                               <img src="images/archive3.png">
+                               <img src="images/archive3.png"
+                              data-44500="transform: translate(-40%, -55%);"
+                              data-46500="transform: translate(-55%, -50%);"
+                               >
                            </div>
                            <div class="bg">
                            <canvas id="canvas4">
@@ -570,8 +596,32 @@
                <div class="ani-container">
                    <div class="cont cont3">
                        <div class="inner">
-                           <h2>Blossoming<br> Flowers</h2>
+                           <h2>Canvas<br>Animation</h2>
                            <div class="img-area">
+                               <img src="images/particle1.png"
+                              data-46000="left: 27%;"
+                              data-48000="left: 13%;"
+                               >
+                               <img src="images/particle1.png"
+                              data-46000="left: 57%;"
+                              data-48000="left: 38%;"
+                               >
+                               <img src="images/particle1.png"
+                              data-46000="left: 71%;"
+                              data-48000="left: 59%;"
+                               >
+                               <img src="images/particle1.png"
+                              data-46000="left: 87%;"
+                              data-48000="left: 70%;"
+                               >
+                               <img src="images/particle1.png"
+                              data-46000="left: 41%;"
+                              data-48000="left: 21%;"
+                               >
+                               <img src="images/particle1.png"
+                              data-46000="left: 81%;"
+                              data-48000="left: 66%;"
+                               >
                            </div>
                           <div class="bg">
                            <canvas id="canvas5">
@@ -579,7 +629,6 @@
                           </div>
                        </div>
                    </div>
-<!--                  <canvas id="canvas6"></canvas>-->
                </div>
             </section>
         <!-- section_15 end -->
@@ -600,14 +649,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <!--  Custom JS  -->
-    <script type="module" src="js/space.js"></script>
-    <script type="module" src="js/space-1.js"></script>
-    <script type="module" src="js/fireflies.js"></script>
+    <script type="module" src="js/canvas_1.js"></script>
+    <script type="module" src="js/canvas_2.js"></script>
+    <script type="module" src="js/canvas_3.js"></script>
     <script type="module" src="js/canvas_4.js"></script>
     <script type="module" src="js/canvas_5.js"></script>
     <script type="module" src="js/canvas_6.js"></script>
     <script src="js/custom.js"></script>
     
+<!--  canvas4  -->
     <script>
            var tp = 2;
         var am = 3;
