@@ -6,32 +6,60 @@
 }
 
 /* Loading */
-.loader {
+/*
+.filler-loader {
+  height: 32px;
+  width: 32px;
+  transform: rotate(-90deg);
+}
+.filler-loader .fill-path {
+  fill: none;
+  stroke: white;
+  stroke-linecap: butt;
+  stroke-width: 8px;
+}
+*/
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.landing {
     position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    z-index: 99999;
-    overflow: hidden;
-}
-
-.loader .intro {
-    position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    background-color: #fff;
+    z-index: 20000;
 }
 
-.loader .intro h1 {
-    font-size: 4vw;
+.landing .title {
     color: #fff;
-    font-family: "Krona One";
+    max-width: 45%;
+    text-align: center;
+    mix-blend-mode: difference;
+    z-index: 2;
+    transform: translateY(40px);
 }
 
-.intro-title .letter {
-    display: inline-block;
-    line-height: 1em;
+.landing .bg {
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    width: 50%;
+    height: 100%;
+    transform: scaleX(0);
+}
+
+.landing .bg-l {
+    left: 0;
+    transform-origin: left center;
+}
+
+.landing .bg-r {
+    left: 50%;
+    transform-origin: right center;
 }
 
 /********* Common CSS **********/
@@ -41,9 +69,12 @@ body {
     height: 1000px;
 }
 
+/*
+
 body.modal-open {
     overflow: hidden;
 }
+*/
 
 .scroll {
     position: fixed;
@@ -98,6 +129,7 @@ header span a {
     left: 0;
     top: 0;
     background: #000;
+    z-index: 4;
 }
 
 section {
@@ -216,6 +248,7 @@ iframe {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 /* Section2 */
@@ -505,7 +538,7 @@ iframe {
     left: 50%;
     transform: translate(-50%, -50%);
     background-size: auto 133.3333%;
-    transition: width 0.2s, height 0.2s ease, transform cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity step-end;
+    transition: width 0.2s, height 0.2s ease, transform cubic-bezier(0.785, 0.135, 0.15, 0.86);
     border-radius: 3px;
 
 }
@@ -641,9 +674,9 @@ iframe {
     background: #fff;
     color: #000;
     cursor: pointer;
-    user-select: none;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .pop-btn:hover {
@@ -970,52 +1003,56 @@ input[type="checkbox"]:checked ~ .modal .inside {
 }
 
 /* 마우스 효과 */
-.touch {
-    position: absolute;
-    left: 65%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000000;
-    border-radius: 5rem;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    color: #fff;
-    font-size: 30px;
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.mouse,
-.mouse-guide,
-.mouse-mid {
-    position: absolute;
-    border-radius: 50%;
+#cursor {
+    position: fixed;
+    z-index: 30000;
+    left: 0;
+    top: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, border-width 0.1s, opacity 0.1s;
-    transition-delay: 0.05s;
-    z-index: 2;
+    will-change: transform;
+    mix-blend-mode: screen;
 }
 
-.mouse {
-    opacity: 0.4;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #444758;
-}
+@media (hover: hover) and (pointer: fine) {
+    .cursor-circle {
+        width: 64px;
+        height: 64px;
+        margin-top: -50%;
+        margin-left: -50%;
+        border-radius: 50%;
+        border: solid 1px #fff;
+        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
 
-.mouse-mid {
-    display: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-}
+    #cursor.arrow .cursor-circle {
+        width: 128px;
+        height: 128px;
+        background-color: #073099;
+        border-color: #073099;
+    }
 
-.mouse-guide {
-    width: 5px;
-    height: 5px;
-    background-color: #fff;
+
+    #cursor.subtle .cursor-circle {
+        opacity: 0.16;
+    }
+
+    #cursor.overlay .cursor-circle {
+        width: 48px;
+        height: 48px;
+        background-color: #fff;
+        border-color: transparent;
+    }
+
+    .pop-btn:hover {
+        height: 3.5em;
+        width: 10.5em;
+        line-height: 3.5em;
+        border-radius: 2em;
+        font-size: 19px;
+    }
+
 }
