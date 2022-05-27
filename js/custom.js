@@ -7,13 +7,7 @@ $(function () {
     });
 
     /* Direct */
-    
-            $(window).load(function () {
-        setTimeout(() => {
-            $(".filler-loader").fadeOut();
-        }, 5000);
-    });
-    
+
     //로딩
     const animationOptions = {
         ease: 'expo.inOut'
@@ -95,7 +89,6 @@ $(function () {
         paused: false,
         delay: 0.2
     });
-    //    TweenMax.to(".landing", 2, {opacity:0, display:"none"});
 
     master.
     add(introAnimation()).

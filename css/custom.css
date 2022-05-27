@@ -6,19 +6,6 @@
 }
 
 /* Loading */
-/*
-.filler-loader {
-  height: 32px;
-  width: 32px;
-  transform: rotate(-90deg);
-}
-.filler-loader .fill-path {
-  fill: none;
-  stroke: white;
-  stroke-linecap: butt;
-  stroke-width: 8px;
-}
-*/
 
 .hidden {
     visibility: hidden;
@@ -69,12 +56,10 @@ body {
     height: 1000px;
 }
 
-/*
 
 body.modal-open {
     overflow: hidden;
 }
-*/
 
 .scroll {
     position: fixed;
@@ -238,6 +223,7 @@ iframe {
 }
 
 /************************** Style CSS **************************/
+
 
 /* Section1 */
 #section1 .bg {
