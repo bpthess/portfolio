@@ -1020,7 +1020,8 @@ input[type="checkbox"]:checked ~ .modal .inside {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 150px;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 120px;
 }
 
 .info .inner {
